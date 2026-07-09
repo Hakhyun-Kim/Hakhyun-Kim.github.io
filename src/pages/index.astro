@@ -1,0 +1,471 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const experience = [
+  {
+    company: 'Solana Foundation',
+    role: 'Ecosystem Engineer / Games Tech Lead, APAC',
+    period: '2022 – 2024',
+    location: 'Remote',
+    points: [
+      'Technical thought partner to game studios and startups across APAC — from ideation to scale.',
+      'Prototyped alongside developers, published technical guides and open-source integration patterns.',
+    ],
+  },
+  {
+    company: 'Unity Technologies',
+    role: 'Senior Developer Support Engineer',
+    period: '2020 – 2022',
+    location: 'Seoul, Korea',
+    points: [
+      'Resolved complex 3D graphics, rendering, and performance issues for studios from indie to AAA.',
+      'Built debugging methodologies and profiling techniques for real-time applications.',
+    ],
+  },
+  {
+    company: 'Varjo',
+    role: 'Unreal Developer — VR/XR',
+    period: '2018 – 2020',
+    location: 'Helsinki, Finland',
+    points: [
+      'Optimized CPU threading and GPU rendering pipelines for human-eye-resolution, low-latency VR.',
+      'Built enterprise MR applications on OpenXR and Unreal Engine.',
+    ],
+  },
+  {
+    company: 'Critical Force',
+    role: 'Senior Programmer',
+    period: '2017 – 2018',
+    location: 'Kajaani, Finland',
+    points: [
+      'Real-time multiplayer mobile games in C++ — memory-leak hunting, crash reduction, live-ops telemetry.',
+    ],
+  },
+  {
+    company: 'NEXON Korea',
+    role: 'Senior Programmer',
+    period: '2015 – 2017',
+    location: 'Seongnam, Korea',
+    points: [
+      'C++/Unreal Engine 4 gameplay systems focused on performance and multi-platform scalability.',
+      'Custom Blueprint nodes, content workflows, and mentoring of junior programmers.',
+    ],
+  },
+  {
+    company: 'Havok (Trinigy → Intel)',
+    role: 'Korea Technical Team Manager',
+    period: '2010 – 2014',
+    location: 'Germany / Korea',
+    points: [
+      'Led engine & middleware technical support across Korea and Asia (PlayStation, Xbox, Wii, Windows).',
+      'Delivered C++ workshops and maintained key customer relationships through two acquisitions.',
+    ],
+  },
+  {
+    company: 'GoldEngine Soft',
+    role: 'Founding Engineer',
+    period: '2008 – 2009',
+    location: 'Shanghai, China',
+    points: [
+      'Built core game-engine modules, tooling, and CI/CD infrastructure from scratch in C++.',
+    ],
+  },
+  {
+    company: 'Gravity',
+    role: 'Client Programmer — Ragnarok Online',
+    period: '2002 – 2005',
+    location: 'Seoul, Korea',
+    points: [
+      'Client programming on one of Korea’s most iconic MMORPGs, while completing a CS degree at Ajou University.',
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: 'MathMath (수학수학)',
+    desc: 'Android math-learning app covering all six elementary grades — adaptive problem generation, step-by-step long-arithmetic walkthroughs. Designed, built, and prepared for Play Store release end-to-end with an AI-agent workflow.',
+    img: '/projects/mathmath.png',
+    tags: ['Android', 'AI-assisted', 'EdTech'],
+  },
+  {
+    name: 'ASMR Tower',
+    desc: 'Roblox 12-stage obby where the spiral tower is fully script-generated at runtime — no hand-built geometry. All nine ASMR sound effects were synthesized in Python, so the game ships with zero licensed assets.',
+    img: '/projects/asmr-tower.png',
+    tags: ['Roblox', 'Lua', 'Procedural'],
+  },
+  {
+    name: 'Math Runner (두 문 수학 러너)',
+    desc: 'Published Roblox educational runner — pick the correct door to answer math questions at speed. Live on Roblox and playable on mobile.',
+    img: '/projects/math-runner.png',
+    tags: ['Roblox', 'Published', 'EdTech'],
+  },
+];
+
+const skills = [
+  'C / C++',
+  'C#',
+  'Unreal Engine',
+  'Unity',
+  'OpenXR / VR / MR',
+  'Performance Profiling',
+  '3D Graphics Pipeline',
+  'Multi-platform (PS / Xbox / Mobile)',
+  'Developer Relations',
+  'Technical Writing',
+  'Blockchain / Web3',
+  'AI-agent Workflows',
+];
+---
+
+<Base title="Hakhyun Kim — Software Engineer · Game & Real-time 3D">
+  <!-- hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hello">안녕하세요 👋 I'm</p>
+      <h1>Hakhyun <span class="gradient-text">Kim</span></h1>
+      <p class="tagline">
+        Software engineer with 20+ years across <strong>games, game engines, XR, and developer
+        relations</strong> — from Ragnarok Online client code to engine support at Havok and Unity,
+        human-eye-resolution VR at Varjo, and games ecosystem engineering at Solana Foundation.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn" href="/blog/">Read the blog <span class="ko">한국어</span></a>
+      </div>
+      <ul class="skills" aria-label="Core skills">
+        {skills.map((s) => <li class="chip">{s}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="experience" class="container section">
+    <h2 class="section-title">Experience</h2>
+    <ol class="timeline">
+      {
+        experience.map((job) => (
+          <li>
+            <div class="tl-head">
+              <h3>{job.company}</h3>
+              <span class="tl-period">{job.period}</span>
+            </div>
+            <p class="tl-role">
+              {job.role} · <span class="tl-loc">{job.location}</span>
+            </p>
+            <ul class="tl-points">
+              {job.points.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="container section">
+    <h2 class="section-title">Recent Projects</h2>
+    <p class="section-note">
+      Built in 2026 with AI-agent development workflows — exploring how far one engineer can take
+      an idea from prompt to published product.
+    </p>
+    <div class="cards">
+      {
+        projects.map((p) => (
+          <article class="card">
+            <img src={p.img} alt={`${p.name} screenshot`} loading="lazy" />
+            <div class="card-body">
+              <h3>{p.name}</h3>
+              <p>{p.desc}</p>
+              <p class="card-tags">
+                {p.tags.map((t) => (
+                  <span class="chip">{t}</span>
+                ))}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- blog -->
+  <section id="blog" class="container section">
+    <h2 class="section-title">From the Blog</h2>
+    <p class="section-note">
+      개발자로 살아온 기록 — 2010년부터 쓴 글들을 블로그스팟에서 옮겨왔습니다.
+    </p>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <span class="post-title">{post.data.title}</span>
+              <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p><a class="more" href="/blog/">All posts →</a></p>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="container section">
+    <h2 class="section-title">Contact</h2>
+    <p>
+      Open to roles in developer relations, technical account management, and engine/graphics
+      engineering — Seoul or remote.
+    </p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:hakhyun.2023@gmail.com">hakhyun.2023@gmail.com</a>
+      <a class="btn" href="https://github.com/Hakhyun-Kim" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/hakhyun-kim" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: 5.5rem 0 3.5rem;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(60rem 24rem at 70% -10%, var(--accent-soft), transparent 60%);
+  }
+
+  .hello {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0.2rem 0 1rem;
+  }
+
+  .tagline {
+    max-width: 46rem;
+    font-size: 1.15rem;
+    color: var(--text-soft);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1.6rem 0 2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.55em 1.2em;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.97rem;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    border-color: var(--text-faint);
+  }
+
+  .btn-primary {
+    background: var(--gradient);
+    border: none;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+
+  .ko {
+    font-size: 0.82em;
+    color: inherit;
+    opacity: 0.7;
+    margin-left: 0.3em;
+  }
+
+  .skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    max-width: 46rem;
+  }
+
+  .section {
+    padding-top: 4rem;
+  }
+
+  .section-note {
+    color: var(--text-soft);
+    margin: -0.8rem 0 1.6rem;
+  }
+
+  /* timeline */
+  .timeline {
+    list-style: none;
+    border-left: 2px solid var(--border);
+    padding-left: 1.6rem;
+    margin-left: 0.4rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .timeline > li {
+    position: relative;
+  }
+
+  .timeline > li::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.6rem - 7px);
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gradient);
+  }
+
+  .tl-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tl-head h3 {
+    font-size: 1.15rem;
+  }
+
+  .tl-period {
+    color: var(--text-faint);
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .tl-role {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  .tl-loc {
+    color: var(--text-faint);
+    font-weight: 400;
+  }
+
+  .tl-points {
+    margin-top: 0.4rem;
+    padding-left: 1.2rem;
+    color: var(--text-soft);
+    font-size: 0.97rem;
+  }
+
+  /* project cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.4rem;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-body {
+    padding: 1.1rem 1.2rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.08rem;
+  }
+
+  .card-body p {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+  }
+
+  /* posts */
+  .post-list {
+    list-style: none;
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .post-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    color: var(--text);
+  }
+
+  .post-list a:hover {
+    background: var(--bg-card);
+    text-decoration: none;
+  }
+
+  .post-list a:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-list time {
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+
+  .more {
+    font-weight: 600;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+</style>

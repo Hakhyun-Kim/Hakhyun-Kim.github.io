@@ -1,0 +1,25 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# personal source materials — keep local, never publish
+blogger_backup/
+Presentations/
+Presentations-*/
+*.pptx
+*.docx
+경력증명서*.pdf

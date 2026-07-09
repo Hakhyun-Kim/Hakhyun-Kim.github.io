@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const byYear = new Map<number, typeof posts>();
+for (const post of posts) {
+  const y = post.data.pubDate.getFullYear();
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(post);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+
+const fmt = (d: Date) =>
+  `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<Base title="Blog — Hakhyun Kim" description="개발자로 살아온 기록 — 게임 엔진, 프로그래밍, 해외 취업, 커리어에 대한 글들." lang="ko">
+  <div class="container">
+    <header class="blog-head">
+      <h1>Blog</h1>
+      <p>
+        2010년부터 써온 개발과 커리어 이야기 {posts.length}편 —
+        블로그스팟(shuaiharry.blogspot.com)에서 옮겨왔습니다.
+      </p>
+    </header>
+
+    {
+      years.map((year) => (
+        <section class="year-group">
+          <h2>{year}</h2>
+          <ul>
+            {byYear.get(year)!.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}/`}>
+                  <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+                  <span class="title">{post.data.title}</span>
+                  {post.data.tags.length > 0 && (
+                    <span class="tags">
+                      {post.data.tags.slice(0, 3).map((t) => (
+                        <span class="chip">{t}</span>
+                      ))}
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .blog-head {
+    padding: 3.5rem 0 1.5rem;
+  }
+
+  .blog-head h1 {
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-head p {
+    color: var(--text-soft);
+    margin-top: 0.4rem;
+  }
+
+  .year-group {
+    margin-top: 2.2rem;
+  }
+
+  .year-group h2 {
+    font-size: 1.1rem;
+    color: var(--text-faint);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .year-group ul {
+    list-style: none;
+  }
+
+  .year-group a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    color: var(--text);
+  }
+
+  .year-group a:hover {
+    background: var(--bg-card);
+    text-decoration: none;
+  }
+
+  .year-group a:hover .title {
+    color: var(--accent);
+  }
+
+  .year-group time {
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  .title {
+    word-break: keep-all;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.3rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .tags {
+      display: none;
+    }
+  }
+</style>

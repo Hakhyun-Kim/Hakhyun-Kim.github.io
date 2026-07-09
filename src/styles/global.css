@@ -1,0 +1,221 @@
+/* ---------- design tokens ---------- */
+:root {
+  --bg: #fafafa;
+  --bg-card: #ffffff;
+  --text: #1c2024;
+  --text-soft: #4b545c;
+  --text-faint: #7c868e;
+  --border: #e4e7ea;
+  --accent: #0369a1;
+  --accent-strong: #1d4ed8;
+  --accent-soft: #e0f2fe;
+  --gradient: linear-gradient(120deg, #0891b2, #2563eb);
+  --code-bg: #f1f4f6;
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.07), 0 8px 24px rgba(16, 24, 40, 0.05);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --text: #e6e9ec;
+  --text-soft: #a8b3bd;
+  --text-faint: #78838d;
+  --border: #262d36;
+  --accent: #38bdf8;
+  --accent-strong: #60a5fa;
+  --accent-soft: #0c2436;
+  --gradient: linear-gradient(120deg, #22d3ee, #3b82f6);
+  --code-bg: #1b222b;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- prose (blog post body) ---------- */
+.prose {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin: 2.2em 0 0.7em;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.prose h2 {
+  font-size: 1.45rem;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 1.2rem;
+}
+
+.prose p {
+  margin: 1.1em 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1.1em 0;
+  padding-left: 1.6em;
+}
+
+.prose li {
+  margin: 0.35em 0;
+}
+
+.prose blockquote {
+  margin: 1.4em 0;
+  padding: 0.3em 1.2em;
+  border-left: 3px solid var(--accent);
+  color: var(--text-soft);
+  background: var(--bg-card);
+  border-radius: 0 8px 8px 0;
+}
+
+.prose img {
+  display: block;
+  margin: 1.6em auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.prose pre {
+  margin: 1.4em 0;
+  padding: 1em 1.2em;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border: 1px solid var(--border);
+}
+
+.prose code {
+  font-family: 'Cascadia Code', Consolas, 'D2Coding', monospace;
+  font-size: 0.92em;
+}
+
+.prose :not(pre) > code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+}
+
+.prose iframe {
+  max-width: 100%;
+  margin: 1.6em auto;
+  display: block;
+  border: 0;
+  border-radius: 10px;
+}
+
+.prose table {
+  border-collapse: collapse;
+  margin: 1.4em 0;
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.9em;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5em 0;
+}
+
+/* ---------- shared bits ---------- */
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  background: var(--gradient);
+}
+
+.chip {
+  display: inline-block;
+  font-size: 0.82rem;
+  padding: 0.18em 0.75em;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}

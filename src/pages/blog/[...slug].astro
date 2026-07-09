@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = post.data.pubDate.toLocaleDateString('ko-KR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Base title={`${post.data.title} — Hakhyun Kim`} description={post.data.description} lang="ko">
+  <article class="container post">
+    <header>
+      <p class="crumb"><a href="/blog/">← Blog</a></p>
+      <h1>{post.data.title}</h1>
+      <p class="meta">
+        <time datetime={post.data.pubDate.toISOString()}>{fmt}</time>
+        {post.data.tags.map((t) => <span class="chip">{t}</span>)}
+      </p>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {
+      post.data.originalUrl && (
+        <p class="origin">
+          이 글은 블로그스팟(<a href={post.data.originalUrl} target="_blank" rel="noopener">원문 링크</a>)에서
+          옮겨온 글입니다.
+        </p>
+      )
+    }
+  </article>
+</Base>
+
+<style>
+  .post {
+    max-width: 46rem;
+    padding-top: 3rem;
+  }
+
+  .crumb {
+    margin-bottom: 1.2rem;
+    font-size: 0.92rem;
+  }
+
+  .post h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0 2.5rem;
+    color: var(--text-faint);
+    font-size: 0.92rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .origin {
+    margin-top: 3rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 0.9rem;
+  }
+</style>
