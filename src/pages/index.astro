@@ -36,8 +36,8 @@ const experience = [
     period: '2018 – 2020',
     location: 'Helsinki, Finland',
     points: [
-      'Optimized CPU threading and GPU rendering pipelines for human-eye-resolution, low-latency VR.',
-      'Built enterprise MR applications on OpenXR and Unreal Engine.',
+      'Customized Unreal Engine post-processing for Varjo’s quad-view (human-eye-resolution) rendering; optimized CPU threading and GPU pipelines for low-latency VR.',
+      'Built enterprise MR applications on OpenXR — engine integration open-sourced at varjoepic/UnrealEngine.',
     ],
   },
   {
@@ -46,7 +46,7 @@ const experience = [
     period: '2017 – 2018',
     location: 'Kajaani, Finland',
     points: [
-      'Real-time multiplayer mobile games in C++ — memory-leak hunting, crash reduction, live-ops telemetry.',
+      'Critical Ops (real-time multiplayer FPS): physics simulation, server-side validation, and social features — plus memory-leak hunting and crash reduction in C++.',
     ],
   },
   {
@@ -55,7 +55,7 @@ const experience = [
     period: '2015 – 2017',
     location: 'Seongnam, Korea',
     points: [
-      'C++/Unreal Engine 4 gameplay systems focused on performance and multi-platform scalability.',
+      'C++/Unreal Engine 4 action-game development — physics & simulation systems in close collaboration with technical artists, plus character AI.',
       'Custom Blueprint nodes, content workflows, and mentoring of junior programmers.',
     ],
   },
@@ -65,7 +65,7 @@ const experience = [
     period: '2010 – 2014',
     location: 'Germany / Korea',
     points: [
-      'Led engine & middleware technical support across Korea and Asia (PlayStation, Xbox, Wii, Windows).',
+      'Engineer at Trinigy HQ (Vision Engine), then founding member of the Havok Korea office after the acquisition — led engine & middleware support across Korea and Asia (Havok Physics / AI / Vision, on PlayStation, Xbox, Wii, Windows).',
       'Delivered C++ workshops and maintained key customer relationships through two acquisitions.',
     ],
   },
@@ -81,12 +81,19 @@ const experience = [
   {
     company: 'Gravity',
     role: 'Client Programmer — Ragnarok Online',
-    period: '2002 – 2005',
+    period: '2003 – 2005',
     location: 'Seoul, Korea',
     points: [
-      'Client programming on one of Korea’s most iconic MMORPGs, while completing a CS degree at Ajou University.',
+      'Overseas client development (IME, localization) for one of Korea’s most iconic MMORPGs — supporting 1M+ concurrent players across 10+ countries, while completing a CS degree at Ajou University.',
     ],
   },
+];
+
+const talks = [
+  { title: 'NDC 2017', desc: 'Nexon Developer Conference presentation (Korean & English)' },
+  { title: 'KGC 2013', desc: 'Korea Games Conference speaker' },
+  { title: 'Konkuk University', desc: 'Lecture series — game programming fundamentals & game middleware' },
+  { title: 'Developer workshops', desc: 'Engine & middleware trainings across Korea/Asia at Havok, Unity, and Solana Foundation' },
 ];
 
 const projects = [
@@ -133,9 +140,13 @@ const skills = [
       <p class="hello">안녕하세요 👋 I'm</p>
       <h1>Hakhyun <span class="gradient-text">Kim</span></h1>
       <p class="tagline">
-        Software engineer with 20+ years across <strong>games, game engines, XR, and developer
+        Software engineer with 15+ years across <strong>games, game engines, XR, and developer
         relations</strong> — from Ragnarok Online client code to engine support at Havok and Unity,
         human-eye-resolution VR at Varjo, and games ecosystem engineering at Solana Foundation.
+      </p>
+      <p class="dream">
+        Long-term dream: an MMORPG with a blockchain-driven in-game economy — and with today's
+        AI tooling, small teams can finally build worlds that big.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">Get in touch</a>
@@ -199,6 +210,21 @@ const skills = [
     </div>
   </section>
 
+  <!-- talks -->
+  <section id="talks" class="container section">
+    <h2 class="section-title">Talks & Teaching</h2>
+    <div class="talks">
+      {
+        talks.map((t) => (
+          <div class="talk">
+            <h3>{t.title}</h3>
+            <p>{t.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- blog -->
   <section id="blog" class="container section">
     <h2 class="section-title">From the Blog</h2>
@@ -230,7 +256,7 @@ const skills = [
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:hakhyun.2023@gmail.com">hakhyun.2023@gmail.com</a>
       <a class="btn" href="https://github.com/Hakhyun-Kim" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://linkedin.com/in/hakhyun-kim" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://www.linkedin.com/in/hakhyunkim/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
 </Base>
@@ -259,6 +285,36 @@ const skills = [
     max-width: 46rem;
     font-size: 1.15rem;
     color: var(--text-soft);
+  }
+
+  .dream {
+    max-width: 46rem;
+    margin-top: 0.8rem;
+    color: var(--text-faint);
+    font-style: italic;
+  }
+
+  .talks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .talk {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+  }
+
+  .talk h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .talk p {
+    color: var(--text-soft);
+    font-size: 0.92rem;
   }
 
   .hero-actions {
