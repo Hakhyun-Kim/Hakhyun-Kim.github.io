@@ -4,7 +4,7 @@ pubDate: 2014-04-05T10:09:00.002+09:00
 description: "좌충우돌 조지아텍 석사(Mooc) 준비 이야기 from Harry(Hakhyun) Kim 작년 중반부터 준비해서 올해 초에 한달 정도 해보았던(=중간에 그만둔) 조지아텍 석사 과정 준비 및 간단한 과정 이야기입니다. 최근에 Udacity 를 통해서 공개되어서 관련 내용도 넣어보았습니다.…"
 originalUrl: "https://shuaiharry.blogspot.com/2014/04/mooc-from-harryhakhyun-kim-kasa.html"
 ---
-<iframe allowfullscreen="" frameborder="0" height="356" marginheight="0" marginwidth="0" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/30190296" style="border-width: 1px 1px 0; border: 1px solid #CCC; margin-bottom: 5px; max-width: 100%;" width="427"></iframe>
+[📑 슬라이드 보기: 좌충우돌 조지아텍 석사(MOOC) 준비 이야기 (PDF)](/slides/gatech-mooc-story.pdf)
 
 **[좌충우돌 조지아텍 석사(Mooc) 준비 이야기](https://www.slideshare.net/shuaiharry/mooc-30190296 "좌충우돌 조지아텍 석사(Mooc) 준비 이야기")** from **[Harry(Hakhyun) Kim](http://www.slideshare.net/shuaiharry)**
 

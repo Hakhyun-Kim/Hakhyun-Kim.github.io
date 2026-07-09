@@ -107,29 +107,29 @@ const talks = [
 
 const slides = [
   {
-    title: '해외에서 일하며 Ver 2',
-    url: 'https://www.slideshare.net/slideshow/ver-2-250585275/250585275',
-    meta: '52 slides',
+    title: '해외에서 일하며 Ver 2 — 해외 취업 이야기',
+    url: '/slides/working-abroad-v2.pdf',
+    meta: '2021 · 52 slides',
   },
   {
     title: '좌충우돌 조지아텍 석사(MOOC) 준비 이야기',
-    url: 'https://www.slideshare.net/slideshow/mooc-30190296/30190296',
-    meta: '21 slides · 22K views',
-  },
-  {
-    title: '해외에서 일하며 느낀 것들',
-    url: 'https://www.slideshare.net/slideshow/ss-10627186/10627186',
-    meta: '37 slides · 15K views',
-  },
-  {
-    title: 'Online Course 이야기',
-    url: 'https://www.slideshare.net/slideshow/online-course-17698039/17698039',
-    meta: '29 slides · 4K views',
+    url: '/slides/gatech-mooc-story.pdf',
+    meta: '2014 · 21 slides · 22K views',
   },
   {
     title: '게임 개발자 K씨의 웹 개발 탐험',
-    url: 'https://www.slideshare.net/slideshow/k-24881011/24881011',
-    meta: '13 slides · 3.7K views',
+    url: '/slides/web-dev-adventure.pdf',
+    meta: '2013 · 13 slides · 3.7K views',
+  },
+  {
+    title: 'Online Course 이야기',
+    url: '/slides/online-course.pdf',
+    meta: '2013 · 29 slides · 4K views',
+  },
+  {
+    title: '해외에서 일하며 느낀 것들 — 그리고 취업 이야기',
+    url: '/slides/working-abroad.pdf',
+    meta: '2011 · 37 slides · 15K views',
   },
 ];
 
@@ -268,17 +268,14 @@ const skills = [
       {
         slides.map((s) => (
           <li>
-            <a href={s.url} target="_blank" rel="noopener">
+            <a href={s.url} target="_blank">
               <span class="slide-name">{s.title}</span>
-              <span class="slide-meta">{s.meta} ↗</span>
+              <span class="slide-meta">{s.meta} · PDF</span>
             </a>
           </li>
         ))
       }
     </ul>
-    <p class="slides-more">
-      More on <a href="https://www.slideshare.net/shuaiharry" target="_blank" rel="noopener">SlideShare</a>
-    </p>
   </section>
 
   <!-- blog -->
