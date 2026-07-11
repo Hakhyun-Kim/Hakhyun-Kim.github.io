@@ -23,5 +23,8 @@ Presentations-*/
 *.pptx
 *.docx
 경력증명서*.pdf
+# root-level PDFs are never site content (slides live in public/slides/);
+# also catches NFD-encoded Korean filenames the NFC pattern above misses
+/*.pdf
 Profile.pdf
 SlideShare_user_data*
