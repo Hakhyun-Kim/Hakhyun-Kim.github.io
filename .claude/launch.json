@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "astro-dev",
-      "runtimeExecutable": "C:\\work\\tools\\node\\node.exe",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
       "runtimeArgs": ["node_modules/astro/astro.js", "dev"],
       "port": 4321
     }
