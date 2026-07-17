@@ -135,18 +135,25 @@ const slides = [
 
 const projects = [
   {
+    name: 'Dungeon100 (백층 던전)',
+    desc: 'Browser-playable 3D roguelike — every run procedurally generates a fresh dungeon on the way down to floor 100, with build-crafting reward cards and a math-runner treasure minigame. React + TypeScript + three.js (@react-three/fiber), seeded RNG, zero external assets. Built for the NAN 2026 (NHN Game × AI Hackathon) pre-assignment. No install, no login — click to play on mobile or PC.',
+    img: '/projects/dungeon100.png',
+    tags: ['three.js', 'React', 'Playable in browser'],
+    link: 'https://hakhyun-kim.github.io/dungeon100/',
+  },
+  {
+    name: 'kimp-mcp',
+    desc: 'MCP (Model Context Protocol) server in Rust that feeds AI assistants live crypto market context — KRW/USDT kimchi premium across Korean spot and global perp venues, the domestic USD/KRW quote, funding carry, order books, premium history with percentiles, and hedge-cost / PnL-decomposition calculators. Read-only, signal-free, no API keys — domain data packaged as an AI-native product.',
+    img: '/projects/kimp-mcp.svg',
+    tags: ['MCP', 'Rust', 'AI Tooling'],
+    link: 'https://github.com/Hakhyun-Kim/kimp-mcp',
+  },
+  {
     name: 'Mart Wine RAG',
     desc: 'Bilingual (KR/EN) retrieval-augmented wine recommender for bottles actually stocked in Korean marts — multilingual E5 embeddings, vector search over a curated 108-wine catalog, and a Streamlit chat that shows exactly which rows grounded each answer. Ships with a Recall@5/MRR retrieval eval.',
     img: '/projects/mart-wine-rag.png',
     tags: ['RAG', 'Vector Search', 'Python'],
     link: 'https://github.com/Hakhyun-Kim/mart-wine-rag',
-  },
-  {
-    name: 'QuantGimp',
-    desc: 'Cross-venue crypto execution framework — KRW spot + USDT perp hedge mirroring with a live dashboard and shadow mode (Python framework, Rust latency-critical core). An LLM ops-briefing layer distills rule-based risk checks into a daily operations digest, generated off-box via Claude so the trading core never calls an LLM.',
-    img: '/projects/quantgimp.png',
-    tags: ['Python', 'Rust', 'LLM Ops'],
-    link: 'https://github.com/Hakhyun-Kim/QuantGimp',
   },
   {
     name: 'MathMath (수학수학)',
@@ -183,6 +190,7 @@ const skills = [
   'Blockchain / Web3',
   'AI-agent Workflows',
   'RAG / Vector Search',
+  'MCP Servers',
 ];
 ---
 

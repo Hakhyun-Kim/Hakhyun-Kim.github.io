@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1600 1000" width="1600" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="kimp-mcp — MCP server for live kimchi-premium market context">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#131f38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4fd1c5"/>
+      <stop offset="1" stop-color="#79c0ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- wordmark -->
+  <text x="90" y="140" font-family="'Segoe UI', system-ui, sans-serif" font-size="84" font-weight="700" fill="#e6edf3">kimp<tspan fill="url(#accent)">-mcp</tspan></text>
+  <text x="90" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="34" fill="#8b98ab">Live kimchi-premium market context for AI assistants · Model Context Protocol server in Rust</text>
+
+  <!-- badges -->
+  <g font-family="Consolas, Menlo, monospace" font-size="26" fill="#4fd1c5">
+    <rect x="90" y="230" width="170" height="46" rx="23" fill="none" stroke="#2b3b57"/>
+    <text x="175" y="261" text-anchor="middle">read-only</text>
+    <rect x="278" y="230" width="188" height="46" rx="23" fill="none" stroke="#2b3b57"/>
+    <text x="372" y="261" text-anchor="middle">signal-free</text>
+    <rect x="484" y="230" width="200" height="46" rx="23" fill="none" stroke="#2b3b57"/>
+    <text x="584" y="261" text-anchor="middle">no API keys</text>
+    <rect x="702" y="230" width="130" height="46" rx="23" fill="none" stroke="#2b3b57"/>
+    <text x="767" y="261" text-anchor="middle">Rust</text>
+  </g>
+
+  <!-- terminal window -->
+  <rect x="90" y="320" width="1420" height="560" rx="18" fill="#0d1117" stroke="#2b3b57" stroke-width="2"/>
+  <rect x="90" y="320" width="1420" height="56" rx="18" fill="#161e2c"/>
+  <rect x="90" y="356" width="1420" height="20" fill="#161e2c"/>
+  <circle cx="130" cy="348" r="9" fill="#ff5f57"/>
+  <circle cx="162" cy="348" r="9" fill="#febc2e"/>
+  <circle cx="194" cy="348" r="9" fill="#28c840"/>
+  <text x="800" y="357" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="24" fill="#8b98ab">AI assistant ⇄ kimp-mcp</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="30">
+    <text x="130" y="432" fill="#7ee787">&gt; get_premium<tspan fill="#c9d1d9">({ symbol: </tspan><tspan fill="#a5d6ff">"DOGE"</tspan><tspan fill="#c9d1d9">, spot: </tspan><tspan fill="#a5d6ff">"upbit"</tspan><tspan fill="#c9d1d9">, perp: </tspan><tspan fill="#a5d6ff">"bybit"</tspan><tspan fill="#c9d1d9"> })</tspan></text>
+    <text x="130" y="490" fill="#c9d1d9">{</text>
+    <text x="170" y="544" fill="#79c0ff">"premium_pct"<tspan fill="#c9d1d9">: { </tspan><tspan fill="#79c0ff">"mid"</tspan><tspan fill="#c9d1d9">: </tspan><tspan fill="#ffa657">-0.68</tspan><tspan fill="#c9d1d9"> },</tspan></text>
+    <text x="170" y="598" fill="#79c0ff">"fx"<tspan fill="#c9d1d9">: { </tspan><tspan fill="#79c0ff">"usdkrw"</tspan><tspan fill="#c9d1d9">: </tspan><tspan fill="#ffa657">1492.0</tspan><tspan fill="#c9d1d9">, </tspan><tspan fill="#79c0ff">"source"</tspan><tspan fill="#c9d1d9">: </tspan><tspan fill="#a5d6ff">"domestic quote"</tspan><tspan fill="#c9d1d9"> },</tspan></text>
+    <text x="170" y="652" fill="#79c0ff">"spot"<tspan fill="#c9d1d9">: { </tspan><tspan fill="#79c0ff">"bid_krw"</tspan><tspan fill="#c9d1d9">: </tspan><tspan fill="#ffa657">107.0</tspan><tspan fill="#c9d1d9"> }, </tspan><tspan fill="#79c0ff">"perp"</tspan><tspan fill="#c9d1d9">: { </tspan><tspan fill="#79c0ff">"bid_usdt"</tspan><tspan fill="#c9d1d9">: </tspan><tspan fill="#ffa657">0.07254</tspan><tspan fill="#c9d1d9"> }</tspan></text>
+    <text x="130" y="706" fill="#c9d1d9">}</text>
+  </g>
+
+  <!-- tool list -->
+  <text x="130" y="800" font-family="Consolas, Menlo, monospace" font-size="26" fill="#8b98ab">tools: <tspan fill="#4fd1c5">get_premium · premium_history · get_fx · get_funding · get_orderbook · hedge_cost · pnl_decompose</tspan></text>
+
+  <!-- footer -->
+  <text x="90" y="950" font-family="'Segoe UI', system-ui, sans-serif" font-size="28" fill="#5b6980">github.com/Hakhyun-Kim/kimp-mcp</text>
+</svg>
