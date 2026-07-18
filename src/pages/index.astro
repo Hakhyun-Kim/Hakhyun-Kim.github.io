@@ -135,6 +135,13 @@ const slides = [
 
 const projects = [
   {
+    name: 'GIWA Village (기와장터)',
+    desc: 'An on-chain hanok marketplace — connect a wallet, walk the village as an avatar, and open a street stall that stays in the world after you disconnect. Real on-chain payments on GIWA Sepolia through a Solidity market contract with escrow and ERC-1155 coupon minting, plus Dojang verified-merchant badges and UP.ID name resolution. A "wallet as a place" experiment, and an on-chain retelling of the Ragnarok Prontera stall culture I started my career on.',
+    img: '/projects/giwa-village.svg',
+    tags: ['Web3', 'Solidity', 'three.js'],
+    link: 'https://hakhyun-kim.github.io/giwa-village/',
+  },
+  {
     name: 'Dungeon100 (백층 던전)',
     desc: 'Browser-playable 3D roguelike — every run procedurally generates a fresh dungeon on the way down to floor 100, with build-crafting reward cards and a math-runner treasure minigame. React + TypeScript + three.js (@react-three/fiber), seeded RNG, zero external assets. Built for the NAN 2026 (NHN Game × AI Hackathon) pre-assignment. No install, no login — click to play on mobile or PC.',
     img: '/projects/dungeon100.png',
@@ -147,6 +154,13 @@ const projects = [
     img: '/projects/kimp-mcp.svg',
     tags: ['MCP', 'Rust', 'AI Tooling'],
     link: 'https://github.com/Hakhyun-Kim/kimp-mcp',
+  },
+  {
+    name: 'AI News Curator',
+    desc: "Economy and business news from the last 24 hours, with politics and sports filtered out — and an \"ask the news\" mode that answers in Korean or English with a citation on every claim. The whole RAG loop is keyless: embeddings and generation both run in the browser (on-device vectors + a local WebGPU model), so it needs no server and no API key, and upgrades to OpenAI only if you supply one.",
+    img: '/projects/ai-news-curator.svg',
+    tags: ['RAG', 'WebGPU', 'Keyless'],
+    link: 'https://hakhyun-kim.github.io/AINewsCurator/',
   },
   {
     name: 'Mart Wine RAG',
@@ -188,6 +202,7 @@ const skills = [
   'Developer Relations',
   'Technical Writing',
   'Blockchain / Web3',
+  'Solidity / Smart Contracts',
   'AI-agent Workflows',
   'RAG / Vector Search',
   'MCP Servers',
@@ -211,10 +226,12 @@ const skills = [
         AI tooling, small teams can finally build worlds that big.
       </p>
       <p class="now">
-        📚 Currently studying <strong>deep learning</strong> — fine-tuning
-        ResNet18 on Stanford 40 Actions, targeting 80% test accuracy.
-        <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">Study repo</a> ·
-        <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">live experiment dashboard</a>
+        📚 Currently studying <strong>deep learning</strong> in public — fine-tuning
+        ResNet18 on Stanford 40 Actions (targeting 80% test accuracy), then pose estimation
+        with Simple Baselines on MPII.
+        <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">Classification repo</a> ·
+        <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">live experiment dashboard</a> ·
+        <a href="https://github.com/Hakhyun-Kim/pose-estimation-study" target="_blank" rel="noopener">pose estimation repo</a>
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">Get in touch</a>

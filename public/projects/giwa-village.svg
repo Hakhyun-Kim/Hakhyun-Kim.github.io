@@ -1,0 +1,82 @@
+<svg viewBox="0 0 1600 1000" width="1600" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="giwa-village — on-chain hanok marketplace on the GIWA chain">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131a2e"/>
+      <stop offset="0.55" stop-color="#24243f"/>
+      <stop offset="1" stop-color="#3a2a3a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f0b429"/>
+      <stop offset="1" stop-color="#e8734a"/>
+    </linearGradient>
+    <radialGradient id="lantern" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffb85c" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffb85c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+
+  <!-- moon -->
+  <circle cx="1330" cy="180" r="72" fill="#f4e5c3" opacity="0.9"/>
+  <circle cx="1300" cy="162" r="72" fill="#131a2e" opacity="0.55"/>
+
+  <!-- distant hills -->
+  <path d="M0 600 Q 260 500 520 590 T 1040 570 T 1600 610 L1600 1000 L0 1000 Z" fill="#1b2136" opacity="0.85"/>
+
+  <!-- hanok roof row (silhouette) -->
+  <g fill="#0f1424">
+    <path d="M120 640 L400 640 L470 700 L50 700 Z"/>
+    <path d="M170 700 L350 700 L350 830 L170 830 Z" opacity="0.9"/>
+    <path d="M540 610 L900 610 L980 678 L460 678 Z"/>
+    <path d="M600 678 L840 678 L840 830 L600 830 Z" opacity="0.9"/>
+    <path d="M1030 645 L1330 645 L1400 706 L960 706 Z"/>
+    <path d="M1080 706 L1280 706 L1280 830 L1080 830 Z" opacity="0.9"/>
+  </g>
+
+  <!-- lantern glows -->
+  <circle cx="260" cy="726" r="70" fill="url(#lantern)"/>
+  <circle cx="720" cy="704" r="80" fill="url(#lantern)"/>
+  <circle cx="1180" cy="732" r="70" fill="url(#lantern)"/>
+  <g fill="#ffb85c">
+    <circle cx="260" cy="726" r="13"/>
+    <circle cx="720" cy="704" r="13"/>
+    <circle cx="1180" cy="732" r="13"/>
+  </g>
+
+  <!-- market stall (노점) -->
+  <g transform="translate(600 740)">
+    <path d="M-110 0 L110 0 L140 44 L-140 44 Z" fill="#8c4a2f"/>
+    <rect x="-104" y="44" width="208" height="90" fill="#12182b"/>
+    <rect x="-104" y="44" width="208" height="90" fill="none" stroke="#f0b429" stroke-width="3" opacity="0.6"/>
+    <text x="0" y="104" text-anchor="middle" font-family="'Malgun Gothic', system-ui, sans-serif" font-size="42" fill="#f0b429">노점</text>
+  </g>
+
+  <!-- ground -->
+  <rect y="874" width="1600" height="126" fill="#0c1020"/>
+
+  <!-- title block -->
+  <text x="90" y="150" font-family="'Malgun Gothic', system-ui, sans-serif" font-size="80" font-weight="700" fill="#f6efe2">기와장터 <tspan font-size="52" fill="url(#gold)">GIWA Village</tspan></text>
+  <text x="90" y="212" font-family="'Segoe UI', system-ui, sans-serif" font-size="33" fill="#b9a892">An on-chain hanok marketplace — open a stall, trade, gift real ETH, walk in as your wallet</text>
+
+  <!-- feature chips -->
+  <g font-family="'Segoe UI', system-ui, sans-serif" font-size="27" fill="#f0b429">
+    <rect x="90" y="252" width="236" height="52" rx="26" fill="#1c2440" stroke="#5a4a2e"/>
+    <text x="208" y="286" text-anchor="middle">persistent stalls</text>
+    <rect x="344" y="252" width="212" height="52" rx="26" fill="#1c2440" stroke="#5a4a2e"/>
+    <text x="450" y="286" text-anchor="middle">ETH gifting</text>
+    <rect x="574" y="252" width="290" height="52" rx="26" fill="#1c2440" stroke="#5a4a2e"/>
+    <text x="719" y="286" text-anchor="middle">ERC-1155 coupons</text>
+    <rect x="882" y="252" width="230" height="52" rx="26" fill="#1c2440" stroke="#5a4a2e"/>
+    <text x="997" y="286" text-anchor="middle">24h escrow</text>
+  </g>
+
+  <!-- contract line -->
+  <g font-family="Consolas, Menlo, monospace" font-size="26">
+    <text x="90" y="380" fill="#7d8aa5">GiwaMarketV2 <tspan fill="#8fd3c7">0x67cddd…ad67</tspan>  ·  GIWA Sepolia</text>
+    <text x="90" y="428" fill="#7d8aa5">Dojang verified merchant <tspan fill="#f0b429">🟡</tspan>  ·  UP.ID name resolution</text>
+  </g>
+
+  <!-- footer -->
+  <text x="90" y="952" font-family="'Segoe UI', system-ui, sans-serif" font-size="28" fill="#6b5f52">hakhyun-kim.github.io/giwa-village</text>
+</svg>
