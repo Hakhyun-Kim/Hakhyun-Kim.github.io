@@ -1,0 +1,870 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  lang: 'en' | 'ko';
+}
+const { lang } = Astro.props;
+const isKo = lang === 'ko';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString(isKo ? 'ko-KR' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const experience = [
+  {
+    company: 'Solana Foundation',
+    role: 'Ecosystem Engineer / Games Tech Lead, APAC',
+    period: '2022 – 2024',
+    location: { en: 'Remote', ko: '리모트' },
+    points: [
+      {
+        en: 'Technical thought partner to game studios and startups across APAC — from ideation to scale.',
+        ko: 'APAC 전역의 게임 스튜디오와 스타트업을 위한 기술 자문 파트너 — 아이디어 단계부터 스케일업까지.',
+      },
+      {
+        en: 'Prototyped alongside developers, published technical guides and open-source integration patterns.',
+        ko: '개발자들과 함께 프로토타입을 만들고, 기술 가이드와 오픈소스 통합 패턴을 공개했습니다.',
+      },
+      {
+        en: 'Engaged with regulators, banks, and exchanges across APAC — regulatory discussions and operational work for the ecosystem.',
+        ko: 'APAC 전역의 규제기관·은행·거래소와 협업 — 생태계를 위한 규제 논의 및 운영 업무를 진행했습니다.',
+      },
+    ],
+  },
+  {
+    company: 'Unity Technologies',
+    role: 'Senior Developer Support Engineer',
+    period: '2020 – 2022',
+    location: { en: 'Seoul, Korea', ko: '서울' },
+    points: [
+      {
+        en: 'Resolved complex 3D graphics, rendering, and performance issues for studios from indie to AAA.',
+        ko: '인디부터 AAA까지 다양한 스튜디오의 복잡한 3D 그래픽·렌더링·성능 이슈를 해결했습니다.',
+      },
+      {
+        en: 'Built debugging methodologies and profiling techniques for real-time applications.',
+        ko: '실시간 애플리케이션을 위한 디버깅 방법론과 프로파일링 기법을 정립했습니다.',
+      },
+    ],
+  },
+  {
+    company: '42dot',
+    role: 'Simulation Engineer',
+    period: '2020',
+    location: { en: 'Seoul, Korea', ko: '서울' },
+    points: [
+      {
+        en: 'Built a high-fidelity Unreal Engine 4 simulator for autonomous-vehicle sensor validation — end-to-end C++ pipelines benchmarking LiDAR, radar, and camera suites on CARLA.',
+        ko: '자율주행 센서 검증을 위한 고정밀 Unreal Engine 4 시뮬레이터 구축 — CARLA 상에서 LiDAR·레이더·카메라 스위트를 벤치마킹하는 C++ 파이프라인을 엔드투엔드로 설계했습니다.',
+      },
+      {
+        en: 'Contributed to the CARLA open-source simulator; optimized real-time rendering and physics to hold frame rates during complex sensor data generation.',
+        ko: '오픈소스 CARLA 시뮬레이터에 기여했으며, 복잡한 센서 데이터 생성 중에도 프레임레이트를 유지하도록 실시간 렌더링과 물리를 최적화했습니다.',
+      },
+    ],
+  },
+  {
+    company: 'Varjo',
+    role: 'Unreal Developer — VR/XR',
+    period: '2018 – 2020',
+    location: { en: 'Helsinki, Finland', ko: '헬싱키, 핀란드' },
+    points: [
+      {
+        en: "Customized Unreal Engine post-processing for Varjo's quad-view (human-eye-resolution) rendering; optimized CPU threading and GPU pipelines for low-latency VR.",
+        ko: 'Varjo의 쿼드뷰(human-eye-resolution) 렌더링을 위해 Unreal Engine 포스트프로세싱을 커스터마이징했고, 저지연 VR을 위한 CPU 스레딩과 GPU 파이프라인을 최적화했습니다.',
+      },
+      {
+        en: 'Built enterprise MR applications on OpenXR — engine integration open-sourced at varjoepic/UnrealEngine.',
+        ko: 'OpenXR 기반 엔터프라이즈 MR 애플리케이션을 개발했으며, 엔진 통합 코드는 varjoepic/UnrealEngine에 오픈소스로 공개했습니다.',
+      },
+    ],
+  },
+  {
+    company: 'Critical Force',
+    role: 'Senior Programmer',
+    period: '2017 – 2018',
+    location: { en: 'Kajaani, Finland', ko: '카야니, 핀란드' },
+    points: [
+      {
+        en: 'Critical Ops (real-time multiplayer FPS): physics simulation, server-side validation, and social features — plus memory-leak hunting and crash reduction in C++.',
+        ko: 'Critical Ops(실시간 멀티플레이어 FPS): 물리 시뮬레이션, 서버 사이드 검증, 소셜 기능 개발 — 더불어 C++ 메모리 릭 추적 및 크래시 개선.',
+      },
+    ],
+  },
+  {
+    company: 'NEXON Korea',
+    role: 'Senior Programmer',
+    period: '2015 – 2017',
+    location: { en: 'Seongnam, Korea', ko: '성남' },
+    points: [
+      {
+        en: 'C++/Unreal Engine 4 action-game development — physics & simulation systems in close collaboration with technical artists, plus character AI.',
+        ko: 'C++/Unreal Engine 4 기반 액션 게임 개발 — 테크니컬 아티스트와 긴밀히 협업한 물리·시뮬레이션 시스템, 그리고 캐릭터 AI.',
+      },
+      {
+        en: 'Custom Blueprint nodes, content workflows, and mentoring of junior programmers.',
+        ko: '커스텀 Blueprint 노드, 콘텐츠 워크플로우 개발, 후임 프로그래머 멘토링.',
+      },
+    ],
+  },
+  {
+    company: 'Havok (Trinigy → Intel)',
+    role: 'Korea Technical Team Manager',
+    period: '2010 – 2014',
+    location: { en: 'Germany / Korea', ko: '독일 / 한국' },
+    points: [
+      {
+        en: 'Engineer at Trinigy HQ (Vision Engine), then founding member of the Havok Korea office after the acquisition — led engine & middleware support across Korea and Asia (Havok Physics / AI / Vision, on PlayStation, Xbox, Wii, Windows).',
+        ko: '비전 엔진(Vision Engine)을 개발한 Trinigy 독일 본사에서 엔지니어로 근무했고, 인수 이후에는 하복 한국 지사 창립 멤버로 한국·아시아 전역의 엔진/미들웨어 지원(Havok Physics/AI/Vision, PlayStation·Xbox·Wii·Windows)을 이끌었습니다.',
+      },
+      {
+        en: 'Delivered C++ workshops and maintained key customer relationships through two acquisitions.',
+        ko: 'C++ 워크숍을 진행했고, 두 차례의 인수 과정에서도 핵심 고객 관계를 유지했습니다.',
+      },
+    ],
+  },
+  {
+    company: 'GoldEngine Soft',
+    role: 'Founding Engineer',
+    period: '2008 – 2009',
+    location: { en: 'Shanghai, China', ko: '중국 상하이' },
+    points: [
+      {
+        en: 'Built core game-engine modules, tooling, and CI/CD infrastructure from scratch in C++.',
+        ko: 'C++로 게임 엔진 핵심 모듈, 툴링, CI/CD 인프라를 처음부터 구축했습니다.',
+      },
+    ],
+  },
+  {
+    company: 'Gravity',
+    role: 'Client Programmer — Ragnarok Online',
+    period: '2003 – 2005',
+    location: { en: 'Seoul, Korea', ko: '서울' },
+    points: [
+      {
+        en: "Overseas client development (IME, localization) for one of Korea's most iconic MMORPGs — supporting 1M+ concurrent players across 10+ countries, while completing a CS degree at Ajou University.",
+        ko: '한국을 대표하는 MMORPG의 해외 클라이언트 개발(IME, 로컬라이징) — 10여 개국 100만 동시접속을 지원했으며, 아주대학교 컴퓨터공학 학위를 병행 이수했습니다.',
+      },
+    ],
+  },
+];
+
+const talks = [
+  {
+    title: { en: 'KGC 2013', ko: 'KGC 2013' },
+    desc: { en: 'Korea Games Conference speaker', ko: '한국게임컨퍼런스(KGC) 연사' },
+  },
+  {
+    title: { en: 'Konkuk University', ko: '건국대학교' },
+    desc: {
+      en: 'Lecture series — game programming fundamentals & game middleware',
+      ko: '강의 시리즈 — 게임 프로그래밍 기초 및 게임 미들웨어',
+    },
+  },
+  {
+    title: { en: 'Developer workshops', ko: '개발자 워크숍' },
+    desc: {
+      en: 'Engine & middleware trainings across Korea/Asia at Havok, Unity, and Solana Foundation',
+      ko: '하복(Havok)·유니티·솔라나 재단에서 진행한 한국/아시아 전역 엔진 & 미들웨어 트레이닝',
+    },
+  },
+];
+
+const slides = [
+  {
+    title: '해외에서 일하며 Ver 2 — 해외 취업 이야기',
+    url: '/slides/working-abroad-v2.pdf',
+    meta: { en: '2021 · 52 slides', ko: '2021 · 52장' },
+  },
+  {
+    title: '좌충우돌 조지아텍 석사(MOOC) 준비 이야기',
+    url: '/slides/gatech-mooc-story.pdf',
+    meta: { en: '2014 · 21 slides · 22K views', ko: '2014 · 21장 · 조회 2.2만' },
+  },
+  {
+    title: '게임 개발자 K씨의 웹 개발 탐험',
+    url: '/slides/web-dev-adventure.pdf',
+    meta: { en: '2013 · 13 slides · 3.7K views', ko: '2013 · 13장 · 조회 3.7천' },
+  },
+  {
+    title: 'Online Course 이야기',
+    url: '/slides/online-course.pdf',
+    meta: { en: '2013 · 29 slides · 4K views', ko: '2013 · 29장 · 조회 4천' },
+  },
+  {
+    title: '해외에서 일하며 느낀 것들 — 그리고 취업 이야기',
+    url: '/slides/working-abroad.pdf',
+    meta: { en: '2011 · 37 slides · 15K views', ko: '2011 · 37장 · 조회 1.5만' },
+  },
+];
+
+const projects = [
+  {
+    name: 'GIWA Village (기와장터)',
+    desc: {
+      en: 'Fully serverless on-chain hanok marketplace — connect a wallet, roam a 3D village as your avatar, open a street stall, haggle, and gift ERC-1155 coupons. No game server: 10 verified Solidity contracts on GIWA Sepolia handle stalls with escrow, guild co-op dungeons, a weekly boss fight, a campfire "warmth" mechanic, and a user-generated cosmetics workshop, plus a read SDK so external apps can query a wallet\'s on-chain social profile. An on-chain retelling of the Ragnarok Prontera stall culture I started my career on — with a public dev journal tracking the build.',
+      ko: '완전 서버리스 온체인 한옥 마켓플레이스 — 지갑을 연결해 아바타로 3D 마을을 돌아다니고, 좌판을 열고, 흥정하고, ERC-1155 쿠폰을 선물할 수 있습니다. 게임 서버 없이 GIWA Sepolia 상의 검증된 Solidity 컨트랙트 10개가 에스크로가 있는 좌판, 길드 협동 던전, 주간 보스전, 모닥불 "온기" 메커닉, 유저 제작 코스메틱 워크숍을 처리하며, 외부 앱이 지갑의 온체인 소셜 프로필을 조회할 수 있는 읽기 전용 SDK도 제공합니다. 제 커리어의 출발점이었던 라그나로크 프론테라 좌판 문화를 온체인으로 재해석한 프로젝트로, 개발 과정을 공개 개발 일지로 기록하고 있습니다.',
+    },
+    img: '/projects/giwa-village.png',
+    tags: [
+      { en: 'Solidity', ko: 'Solidity' },
+      { en: 'On-chain', ko: '온체인' },
+      { en: 'three.js', ko: 'three.js' },
+    ],
+    link: 'https://hakhyun-kim.github.io/giwa-village/',
+  },
+  {
+    name: 'Dungeon100 (백층 던전)',
+    desc: {
+      en: 'Browser-playable 3D roguelike — every run procedurally generates a fresh dungeon on the way down to floor 100, with build-crafting reward cards and a math-runner treasure minigame. React + TypeScript + three.js (@react-three/fiber), seeded RNG, zero external assets. Built for the NAN 2026 (NHN Game × AI Hackathon) pre-assignment. No install, no login — click to play on mobile or PC.',
+      ko: '브라우저에서 바로 즐기는 3D 로그라이크 — 100층까지 내려가는 매 런마다 던전이 절차적으로 새로 생성되며, 빌드 크래프팅 보상 카드와 매스 러너 보물 미니게임이 포함됩니다. React + TypeScript + three.js(@react-three/fiber), 시드 기반 RNG, 외부 에셋 0개. NAN 2026(NHN Game × AI 해커톤) 사전 과제로 제작했습니다. 설치도 로그인도 없이 — 클릭 한 번으로 모바일이나 PC에서 바로 플레이할 수 있습니다.',
+    },
+    img: '/projects/dungeon100.png',
+    tags: [
+      { en: 'three.js', ko: 'three.js' },
+      { en: 'React', ko: 'React' },
+      { en: 'Playable in browser', ko: '브라우저 플레이 가능' },
+    ],
+    link: 'https://hakhyun-kim.github.io/dungeon100/',
+  },
+  {
+    name: 'kimp-mcp',
+    desc: {
+      en: 'MCP (Model Context Protocol) server in Rust that feeds AI assistants live crypto market context — KRW/USDT kimchi premium across Korean spot and global perp venues, the domestic USD/KRW quote, funding carry, order books, premium history with percentiles, and hedge-cost / PnL-decomposition calculators. Read-only, signal-free, no API keys — domain data packaged as an AI-native product.',
+      ko: 'AI 어시스턴트에게 실시간 암호화폐 시장 맥락을 제공하는 Rust 기반 MCP(Model Context Protocol) 서버 — 한국 현물 거래소와 글로벌 무기한선물 거래소 간 KRW/USDT 김치 프리미엄, 국내 원/달러 환율, 펀딩비, 오더북, 백분위수를 포함한 프리미엄 히스토리, 헤지 비용/손익 분해 계산기까지 제공합니다. 읽기 전용, 매매 신호 없음, API 키 불필요 — 도메인 데이터를 AI 네이티브 제품으로 패키징했습니다.',
+    },
+    img: '/projects/kimp-mcp.svg',
+    tags: [
+      { en: 'MCP', ko: 'MCP' },
+      { en: 'Rust', ko: 'Rust' },
+      { en: 'AI Tooling', ko: 'AI 툴링' },
+    ],
+    link: 'https://github.com/Hakhyun-Kim/kimp-mcp',
+  },
+  {
+    name: 'AI News Curator',
+    desc: {
+      en: 'Economy and business news from the last 24 hours, with politics and sports filtered out — and an "ask the news" mode that answers in Korean or English with a citation on every claim. The whole RAG loop is keyless: embeddings and generation both run in the browser (on-device vectors + a local WebGPU model), so it needs no server and no API key, and upgrades to OpenAI only if you supply one.',
+      ko: '정치·스포츠는 걸러내고 지난 24시간의 경제·비즈니스 뉴스만 보여줍니다 — "뉴스에 물어보기" 모드는 모든 답변에 출처를 달아 한국어 또는 영어로 답합니다. 전체 RAG 루프가 키 불필요: 임베딩과 생성 모두 브라우저에서 실행되므로(온디바이스 벡터 + 로컬 WebGPU 모델) 서버도 API 키도 필요 없고, 직접 키를 입력하면 OpenAI로 업그레이드됩니다.',
+    },
+    img: '/projects/ai-news-curator.svg',
+    tags: [
+      { en: 'RAG', ko: 'RAG' },
+      { en: 'WebGPU', ko: 'WebGPU' },
+      { en: 'Keyless', ko: '키 불필요' },
+    ],
+    link: 'https://hakhyun-kim.github.io/AINewsCurator/',
+  },
+  {
+    name: 'Mart Wine RAG',
+    desc: {
+      en: 'Bilingual (KR/EN) retrieval-augmented wine recommender for bottles actually stocked in Korean marts — multilingual E5 embeddings, vector search over a curated 108-wine catalog, and a Streamlit chat that shows exactly which rows grounded each answer. Ships with a Recall@5/MRR retrieval eval.',
+      ko: '한국 마트에 실제로 입고된 와인만을 대상으로 하는 한/영 이중언어 RAG 와인 추천기 — multilingual E5 임베딩, 큐레이션된 108종 와인 카탈로그에 대한 벡터 검색, 각 답변의 근거가 된 행을 정확히 보여주는 Streamlit 챗봇으로 구성됩니다. Recall@5/MRR 검색 성능 평가도 함께 제공합니다.',
+    },
+    img: '/projects/mart-wine-rag.png',
+    tags: [
+      { en: 'RAG', ko: 'RAG' },
+      { en: 'Vector Search', ko: '벡터 검색' },
+      { en: 'Python', ko: 'Python' },
+    ],
+    link: 'https://github.com/Hakhyun-Kim/mart-wine-rag',
+  },
+  {
+    name: 'MathMath (수학수학)',
+    desc: {
+      en: 'Android math-learning app covering all six elementary grades — adaptive problem generation, step-by-step long-arithmetic walkthroughs. Designed, built, and prepared for Play Store release end-to-end with an AI-agent workflow.',
+      ko: '초등 전 학년(1~6학년)을 아우르는 안드로이드 수학 학습 앱 — 적응형 문제 생성과 단계별 세로셈 풀이를 제공합니다. 기획부터 Play Store 출시 준비까지 AI 에이전트 워크플로우로 엔드투엔드 개발했습니다.',
+    },
+    img: '/projects/mathmath.png',
+    tags: [
+      { en: 'Android', ko: 'Android' },
+      { en: 'AI-assisted', ko: 'AI 활용' },
+      { en: 'EdTech', ko: '에듀테크' },
+    ],
+  },
+  {
+    name: 'ASMR Tower',
+    desc: {
+      en: 'Roblox 12-stage obby where the spiral tower is fully script-generated at runtime — no hand-built geometry. All nine ASMR sound effects were synthesized in Python, so the game ships with zero licensed assets.',
+      ko: '나선형 타워 전체가 런타임에 스크립트로 생성되는 Roblox 12스테이지 obby — 손으로 만든 지오메트리는 하나도 없습니다. 9종의 ASMR 효과음도 전부 Python으로 합성해, 라이선스 에셋 없이 완성했습니다.',
+    },
+    img: '/projects/asmr-tower.png',
+    tags: [
+      { en: 'Roblox', ko: 'Roblox' },
+      { en: 'Lua', ko: 'Lua' },
+      { en: 'Procedural', ko: '절차적 생성' },
+    ],
+  },
+  {
+    name: 'Math Runner (두 문 수학 러너)',
+    desc: {
+      en: 'Published Roblox educational runner — pick the correct door to answer math questions at speed. Live on Roblox and playable on mobile.',
+      ko: '출시 완료된 Roblox 교육용 러너 게임 — 빠르게 정답 문을 골라 수학 문제를 풉니다. Roblox에 라이브 서비스 중이며 모바일에서도 플레이할 수 있습니다.',
+    },
+    img: '/projects/math-runner.png',
+    tags: [
+      { en: 'Roblox', ko: 'Roblox' },
+      { en: 'Published', ko: '퍼블리시 완료' },
+      { en: 'EdTech', ko: '에듀테크' },
+    ],
+  },
+];
+
+const skills = [
+  { en: 'C / C++', ko: 'C / C++' },
+  { en: 'C#', ko: 'C#' },
+  { en: 'Unreal Engine', ko: 'Unreal Engine' },
+  { en: 'Unity', ko: 'Unity' },
+  { en: 'OpenXR / VR / MR', ko: 'OpenXR / VR / MR' },
+  { en: 'CARLA / AV Simulation', ko: 'CARLA / 자율주행 시뮬레이션' },
+  { en: 'Performance Profiling', ko: '성능 프로파일링' },
+  { en: '3D Graphics Pipeline', ko: '3D 그래픽스 파이프라인' },
+  { en: 'Multi-platform (PS / Xbox / Mobile)', ko: '멀티플랫폼(PS/Xbox/모바일)' },
+  { en: 'Developer Relations', ko: '개발자 관계(DevRel)' },
+  { en: 'Technical Writing', ko: '기술 문서 작성' },
+  { en: 'Blockchain / Web3', ko: '블록체인 / Web3' },
+  { en: 'Solidity / Smart Contracts', ko: 'Solidity / 스마트 컨트랙트' },
+  { en: 'AI-agent Workflows', ko: 'AI 에이전트 워크플로우' },
+  { en: 'RAG / Vector Search', ko: 'RAG / 벡터 검색' },
+  { en: 'MCP Servers', ko: 'MCP 서버' },
+];
+
+const title = isKo
+  ? '김학현 — 게임 엔진 & 실시간 3D 소프트웨어 엔지니어'
+  : 'Hakhyun Kim — Software Engineer · Game & Real-time 3D';
+const description = isKo
+  ? '김학현 — 게임 엔진, 실시간 3D, XR, 개발자 관계(DevRel) 전문 소프트웨어 엔지니어.'
+  : 'Hakhyun Kim — software engineer specializing in game engines, real-time 3D, XR, and developer relations.';
+const alternate = isKo ? '/' : '/ko/';
+---
+
+<Base title={title} description={description} lang={lang} alternate={alternate} autoRedirect={!isKo}>
+  <!-- hero -->
+  <section class="hero">
+    <div class="container">
+      {isKo ? (
+        <p class="hello">안녕하세요 👋 저는</p>
+      ) : (
+        <p class="hello">안녕하세요 👋 I'm</p>
+      )}
+      <h1>Hakhyun <span class="gradient-text">Kim</span></h1>
+      {isKo ? (
+        <p class="tagline">
+          게임, 게임 엔진, XR, 시뮬레이션, <strong>개발자 관계(DevRel)</strong> 분야에서 15년 이상
+          일해온 소프트웨어 엔지니어입니다. 라그나로크 온라인 클라이언트 코드로 시작해 하복(Havok)과
+          유니티(Unity)에서 엔진 지원을, Varjo에서 human-eye-resolution VR을, 42dot에서 자율주행
+          시뮬레이션을, 솔라나 재단에서 게임 생태계 엔지니어링을 거쳤습니다.
+        </p>
+      ) : (
+        <p class="tagline">
+          Software engineer with 15+ years across <strong>games, game engines, XR, simulation, and
+          developer relations</strong> — from Ragnarok Online client code to engine support at Havok
+          and Unity, human-eye-resolution VR at Varjo, autonomous-driving simulation at 42dot, and
+          games ecosystem engineering at Solana Foundation.
+        </p>
+      )}
+      {isKo ? (
+        <p class="dream">
+          장기적인 꿈은 블록체인 기반 인게임 경제를 가진 MMORPG를 만드는 것입니다 — 요즘 AI
+          툴링이라면, 소규모 팀도 그만큼 큰 세계를 만들 수 있는 시대가 왔다고 생각합니다.
+        </p>
+      ) : (
+        <p class="dream">
+          Long-term dream: an MMORPG with a blockchain-driven in-game economy — and with today's
+          AI tooling, small teams can finally build worlds that big.
+        </p>
+      )}
+      {isKo ? (
+        <p class="now">
+          📚 현재 <strong>딥러닝</strong>을 공개적으로 공부하며 기록 중입니다 — Stanford 40
+          Actions로 ResNet18을 파인튜닝 중이고(목표 80% 테스트 정확도), 다음은 MPII 데이터셋으로
+          Simple Baselines 기반 포즈 추정을 진행할 예정입니다.
+          <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">분류 저장소</a> ·
+          <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">실험 대시보드</a> ·
+          <a href="https://github.com/Hakhyun-Kim/pose-estimation-study" target="_blank" rel="noopener">포즈 추정 저장소</a>
+        </p>
+      ) : (
+        <p class="now">
+          📚 Currently studying <strong>deep learning</strong> in public — fine-tuning
+          ResNet18 on Stanford 40 Actions (targeting 80% test accuracy), then pose estimation
+          with Simple Baselines on MPII.
+          <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">Classification repo</a> ·
+          <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">live experiment dashboard</a> ·
+          <a href="https://github.com/Hakhyun-Kim/pose-estimation-study" target="_blank" rel="noopener">pose estimation repo</a>
+        </p>
+      )}
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">{isKo ? '연락하기' : 'Get in touch'}</a>
+        {isKo ? (
+          <a class="btn" href="/blog/">블로그 읽기</a>
+        ) : (
+          <a class="btn" href="/blog/">Read the blog <span class="ko">한국어</span></a>
+        )}
+      </div>
+      <ul class="skills" aria-label="Core skills">
+        {skills.map((s) => <li class="chip">{s[lang]}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="experience" class="container section">
+    <h2 class="section-title">{isKo ? '경력' : 'Experience'}</h2>
+    <ol class="timeline">
+      {
+        experience.map((job) => (
+          <li>
+            <div class="tl-head">
+              <h3>{job.company}</h3>
+              <span class="tl-period">{job.period}</span>
+            </div>
+            <p class="tl-role">
+              {job.role} · <span class="tl-loc">{job.location[lang]}</span>
+            </p>
+            <ul class="tl-points">
+              {job.points.map((p) => (
+                <li>{p[lang]}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="container section">
+    <h2 class="section-title">{isKo ? '최근 프로젝트' : 'Recent Projects'}</h2>
+    <p class="section-note">
+      {isKo
+        ? '2026년, AI 에이전트 개발 워크플로우로 만든 프로젝트들입니다 — 한 명의 엔지니어가 프롬프트에서 출시까지 얼마나 멀리 갈 수 있는지 실험하고 있습니다.'
+        : 'Built in 2026 with AI-agent development workflows — exploring how far one engineer can take an idea from prompt to published product.'}
+    </p>
+    <div class="cards">
+      {
+        projects.map((p) => (
+          <article class="card">
+            <img src={p.img} alt={`${p.name} screenshot`} loading="lazy" />
+            <div class="card-body">
+              <h3>
+                {p.link ? (
+                  <a href={p.link} target="_blank" rel="noopener">
+                    {p.name} ↗
+                  </a>
+                ) : (
+                  p.name
+                )}
+              </h3>
+              <p>{p.desc[lang]}</p>
+              <p class="card-tags">
+                {p.tags.map((t) => (
+                  <span class="chip">{t[lang]}</span>
+                ))}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- talks -->
+  <section id="talks" class="container section">
+    <h2 class="section-title">{isKo ? '발표 & 강의' : 'Talks & Teaching'}</h2>
+    <div class="talks">
+      {
+        talks.map((t) => (
+          <div class="talk">
+            <h3>{t.title[lang]}</h3>
+            <p>{t.desc[lang]}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <h3 class="slides-title">{isKo ? '슬라이드' : 'Slides'}</h3>
+    <ul class="slide-list">
+      {
+        slides.map((s) => (
+          <li>
+            <a href={s.url} target="_blank">
+              <span class="slide-name">{s.title}</span>
+              <span class="slide-meta">{s.meta[lang]} · PDF</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- blog -->
+  <section id="blog" class="container section">
+    <h2 class="section-title">{isKo ? '블로그 최근 글' : 'From the Blog'}</h2>
+    <p class="section-note">
+      개발자로 살아온 기록 — 2010년부터 쓴 글들을 블로그스팟에서 옮겨왔습니다.
+    </p>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>
+              <span class="post-title">{post.data.title}</span>
+              <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p><a class="more" href="/blog/">{isKo ? '전체 글 보기 →' : 'All posts →'}</a></p>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="container section">
+    <h2 class="section-title">{isKo ? '연락처' : 'Contact'}</h2>
+    <p>
+      {isKo
+        ? '개발자 관계(DevRel), 테크니컬 어카운트 매니지먼트, 엔진/그래픽스 엔지니어링 분야의 포지션에 열려 있습니다 — 서울 또는 리모트.'
+        : 'Open to roles in developer relations, technical account management, and engine/graphics engineering — Seoul or remote.'}
+    </p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:hakhyun.2023@gmail.com">hakhyun.2023@gmail.com</a>
+      <a class="btn" href="https://github.com/Hakhyun-Kim" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/hakhyunkim/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: 5.5rem 0 3.5rem;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(60rem 24rem at 70% -10%, var(--accent-soft), transparent 60%);
+  }
+
+  .hello {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0.2rem 0 1rem;
+  }
+
+  .tagline {
+    max-width: 46rem;
+    font-size: 1.15rem;
+    color: var(--text-soft);
+  }
+
+  .dream {
+    max-width: 46rem;
+    margin-top: 0.8rem;
+    color: var(--text-faint);
+    font-style: italic;
+  }
+
+  .now {
+    max-width: 46rem;
+    margin-top: 0.8rem;
+    color: var(--text-soft);
+    font-size: 0.97rem;
+  }
+
+  .talks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .talk {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+  }
+
+  .talk h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .talk p {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+  }
+
+  .slides-title {
+    margin: 1.8rem 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--text-soft);
+  }
+
+  .slide-list {
+    list-style: none;
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .slide-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 8px;
+    color: var(--text);
+  }
+
+  .slide-list a:hover {
+    background: var(--bg-card);
+    text-decoration: none;
+  }
+
+  .slide-list a:hover .slide-name {
+    color: var(--accent);
+  }
+
+  .slide-name {
+    word-break: keep-all;
+  }
+
+  .slide-meta {
+    color: var(--text-faint);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .slides-more {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-faint);
+    padding-left: 0.7rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1.6rem 0 2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.55em 1.2em;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.97rem;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    border-color: var(--text-faint);
+  }
+
+  .btn-primary {
+    background: var(--gradient);
+    border: none;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+
+  .ko {
+    font-size: 0.82em;
+    color: inherit;
+    opacity: 0.7;
+    margin-left: 0.3em;
+  }
+
+  .skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    max-width: 46rem;
+  }
+
+  .section {
+    padding-top: 4rem;
+  }
+
+  .section-note {
+    color: var(--text-soft);
+    margin: -0.8rem 0 1.6rem;
+  }
+
+  /* timeline */
+  .timeline {
+    list-style: none;
+    border-left: 2px solid var(--border);
+    padding-left: 1.6rem;
+    margin-left: 0.4rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .timeline > li {
+    position: relative;
+  }
+
+  .timeline > li::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.6rem - 7px);
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gradient);
+  }
+
+  .tl-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tl-head h3 {
+    font-size: 1.15rem;
+  }
+
+  .tl-period {
+    color: var(--text-faint);
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .tl-role {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  .tl-loc {
+    color: var(--text-faint);
+    font-weight: 400;
+  }
+
+  .tl-points {
+    margin-top: 0.4rem;
+    padding-left: 1.2rem;
+    color: var(--text-soft);
+    font-size: 0.97rem;
+  }
+
+  /* project cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.4rem;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-body {
+    padding: 1.1rem 1.2rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.08rem;
+  }
+
+  .card-body h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card-body h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .card-body p {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+  }
+
+  /* posts */
+  .post-list {
+    list-style: none;
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .post-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    color: var(--text);
+  }
+
+  .post-list a:hover {
+    background: var(--bg-card);
+    text-decoration: none;
+  }
+
+  .post-list a:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-list time {
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+
+  .more {
+    font-weight: 600;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+</style>
