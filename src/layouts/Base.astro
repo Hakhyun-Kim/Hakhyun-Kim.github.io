@@ -70,6 +70,7 @@ const prefix = isKo ? '/ko' : '';
         <div class="nav-links">
           <a href={`${prefix}/#experience`}>{isKo ? '경력' : 'Experience'}</a>
           <a href={`${prefix}/#projects`}>{isKo ? '프로젝트' : 'Projects'}</a>
+          <a href={`${prefix}/#research`}>{isKo ? '연구' : 'Research'}</a>
           <a href="/blog/">{isKo ? '블로그' : 'Blog'}</a>
           <a href={`${prefix}/#contact`}>{isKo ? '연락처' : 'Contact'}</a>
           {alternate && (
@@ -222,8 +223,26 @@ const prefix = isKo ? '/ko' : '';
       display: none;
     }
 
+    .brand {
+      flex-shrink: 0;
+    }
+
+    /* the link row is wider than a phone, so let it scroll inside itself —
+       otherwise it pushes the whole page into a horizontal scroll */
     .nav-links {
       gap: 1rem;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links > * {
+      flex-shrink: 0;
     }
   }
 </style>

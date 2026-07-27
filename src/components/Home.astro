@@ -315,6 +315,54 @@ const projects = [
   },
 ];
 
+const research = [
+  {
+    title: { en: 'Image classification', ko: '이미지 분류' },
+    repo: 'deep-learning-study',
+    desc: {
+      en: 'Fine-tuning ResNet18 on Stanford 40 Actions, targeting 80% test accuracy. Every run is scripted and logged to a dashboard that publishes itself from the repo.',
+      ko: 'Stanford 40 Actions 데이터셋으로 ResNet18을 파인튜닝하며 테스트 정확도 80%를 목표로 하고 있습니다. 모든 실험은 스크립트로 재현 가능하며, 저장소에서 자동 배포되는 대시보드에 기록됩니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/deep-learning-study' },
+      { label: { en: 'Live dashboard', ko: '실험 대시보드' }, url: 'https://hakhyun-kim.github.io/deep-learning-study/' },
+    ],
+  },
+  {
+    title: { en: 'Pose estimation', ko: '포즈 추정' },
+    repo: 'pose-estimation-study',
+    desc: {
+      en: 'Reimplementing Simple Baselines (ECCV 2018) with a ResNet18 backbone on MPII, targeting PCKh@0.5 of 85%.',
+      ko: 'Simple Baselines(ECCV 2018)를 ResNet18 백본으로 MPII 데이터셋에 재구현하며, PCKh@0.5 85%를 목표로 하고 있습니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/pose-estimation-study' },
+    ],
+  },
+  {
+    title: { en: 'Isaac Sim — physics & synthetic data', ko: 'Isaac Sim — 물리 & 합성 데이터' },
+    repo: 'isaac-sim-test',
+    desc: {
+      en: 'Seven headless experiments on NVIDIA Isaac Sim — rigid-body physics, Replicator RGB capture, a 9-DOF Franka articulation, pixel-aligned depth and semantic segmentation, domain randomization, RTX LiDAR point clouds, and a sim-ready OpenUSD scene authored file-first. Run on a 4 GB laptop GPU, half the minimum spec — finding out what actually breaks is part of the experiment.',
+      ko: 'NVIDIA Isaac Sim 헤드리스 실험 7종 — 강체 물리, Replicator RGB 캡처, 9자유도 Franka 관절 제어, 픽셀 정렬된 깊이·시맨틱 분할, 도메인 랜덤화, RTX LiDAR 포인트 클라우드, 그리고 파일 우선으로 작성한 시뮬레이션 준비 OpenUSD 씬. 최소 사양의 절반인 4GB 노트북 GPU에서 돌렸고, 무엇이 실제로 깨지는지 확인하는 것 자체가 실험의 일부입니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/isaac-sim-test' },
+    ],
+  },
+  {
+    title: { en: 'STEP → simulation-ready OpenUSD', ko: 'STEP → 시뮬레이션용 OpenUSD' },
+    repo: 'step-to-usd',
+    desc: {
+      en: 'Converting CAD B-rep into a USD asset and scene that a physics engine can use — OpenCASCADE tessellation with tolerance control, separate asset/scene layers with instanceable references, PBR material and colliders. Mass properties come from the B-rep rather than the mesh, so physics does not change when the visual level of detail does. Validated by re-reading the authored files from disk.',
+      ko: 'CAD B-rep을 물리 엔진이 바로 쓸 수 있는 USD 에셋과 씬으로 변환합니다 — 허용오차를 제어하는 OpenCASCADE 테셀레이션, 인스턴스 참조로 분리한 에셋/씬 레이어, PBR 머티리얼과 콜라이더. 질량 특성을 메시가 아니라 B-rep에서 계산하므로, 시각적 디테일 수준이 바뀌어도 물리가 달라지지 않습니다. 작성된 파일을 디스크에서 다시 읽어 검증합니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/step-to-usd' },
+    ],
+  },
+];
+
 const skills = [
   { en: 'C / C++', ko: 'C / C++' },
   { en: 'C#', ko: 'C#' },
@@ -370,21 +418,15 @@ const alternate = isKo ? '/' : '/ko/';
       )}
       {isKo ? (
         <p class="now">
-          📚 현재 <strong>딥러닝</strong>을 공개적으로 공부하며 기록 중입니다 — Stanford 40
-          Actions로 ResNet18을 파인튜닝 중이고(목표 80% 테스트 정확도), 다음은 MPII 데이터셋으로
-          Simple Baselines 기반 포즈 추정을 진행할 예정입니다.
-          <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">분류 저장소</a> ·
-          <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">실험 대시보드</a> ·
-          <a href="https://github.com/Hakhyun-Kim/pose-estimation-study" target="_blank" rel="noopener">포즈 추정 저장소</a>
+          📚 공개적으로 공부하며 기록 중입니다 — <strong>딥러닝</strong>(Stanford 40 Actions로
+          ResNet18 파인튜닝, MPII 포즈 추정)과 <strong>시뮬레이션·로보틱스</strong>(Isaac Sim,
+          CAD → OpenUSD 변환). <a href="#research">연구 &amp; 스터디 보기 →</a>
         </p>
       ) : (
         <p class="now">
-          📚 Currently studying <strong>deep learning</strong> in public — fine-tuning
-          ResNet18 on Stanford 40 Actions (targeting 80% test accuracy), then pose estimation
-          with Simple Baselines on MPII.
-          <a href="https://github.com/Hakhyun-Kim/deep-learning-study" target="_blank" rel="noopener">Classification repo</a> ·
-          <a href="https://hakhyun-kim.github.io/deep-learning-study/" target="_blank" rel="noopener">live experiment dashboard</a> ·
-          <a href="https://github.com/Hakhyun-Kim/pose-estimation-study" target="_blank" rel="noopener">pose estimation repo</a>
+          📚 Studying in public — <strong>deep learning</strong> (ResNet18 on Stanford 40
+          Actions, pose estimation on MPII) and <strong>simulation &amp; robotics</strong>
+          (Isaac Sim, CAD → OpenUSD). <a href="#research">See research &amp; study →</a>
         </p>
       )}
       <div class="hero-actions">
@@ -456,6 +498,34 @@ const alternate = isKo ? '/' : '/ko/';
                 ))}
               </p>
             </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- research -->
+  <section id="research" class="container section">
+    <h2 class="section-title">{isKo ? '연구 & 스터디' : 'Research & Study'}</h2>
+    <p class="section-note">
+      {isKo
+        ? '공개적으로 공부하는 중입니다 — 딥러닝, 그리고 시뮬레이션·로보틱스. 모든 실험은 스크립트로 재현 가능하며, 실패한 것까지 함께 기록합니다.'
+        : 'Learning in public — deep learning, plus simulation and robotics. Every experiment is scripted and reproducible, and the failures are written down too.'}
+    </p>
+    <div class="research">
+      {
+        research.map((r) => (
+          <article class="study">
+            <h3>{r.title[lang]}</h3>
+            <p class="study-repo">{r.repo}</p>
+            <p>{r.desc[lang]}</p>
+            <p class="study-links">
+              {r.links.map((l) => (
+                <a href={l.url} target="_blank" rel="noopener">
+                  {l.label[lang]} ↗
+                </a>
+              ))}
+            </p>
           </article>
         ))
       }
@@ -559,6 +629,46 @@ const alternate = isKo ? '/' : '/ko/';
     margin-top: 0.8rem;
     color: var(--text-soft);
     font-size: 0.97rem;
+  }
+
+  .research {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 1rem;
+  }
+
+  .study {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .study h3 {
+    font-size: 1.05rem;
+  }
+
+  .study-repo {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+
+  .study p {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+  }
+
+  .study-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 0.4rem;
+    font-size: 0.88rem;
   }
 
   .talks {
