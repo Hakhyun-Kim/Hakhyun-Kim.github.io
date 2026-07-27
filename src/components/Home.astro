@@ -247,34 +247,6 @@ const projects = [
     link: 'https://github.com/Hakhyun-Kim/agentic-gamedev-playbook',
   },
   {
-    name: 'AI News Curator',
-    desc: {
-      en: 'Economy and business news from the last 24 hours, with politics and sports filtered out — and an "ask the news" mode that answers in Korean or English with a citation on every claim. The whole RAG loop is keyless: embeddings and generation both run in the browser (on-device vectors + a local WebGPU model), so it needs no server and no API key, and upgrades to OpenAI only if you supply one.',
-      ko: '정치·스포츠는 걸러내고 지난 24시간의 경제·비즈니스 뉴스만 보여줍니다 — "뉴스에 물어보기" 모드는 모든 답변에 출처를 달아 한국어 또는 영어로 답합니다. 전체 RAG 루프가 키 불필요: 임베딩과 생성 모두 브라우저에서 실행되므로(온디바이스 벡터 + 로컬 WebGPU 모델) 서버도 API 키도 필요 없고, 직접 키를 입력하면 OpenAI로 업그레이드됩니다.',
-    },
-    img: '/projects/ai-news-curator.svg',
-    tags: [
-      { en: 'RAG', ko: 'RAG' },
-      { en: 'WebGPU', ko: 'WebGPU' },
-      { en: 'Keyless', ko: '키 불필요' },
-    ],
-    link: 'https://hakhyun-kim.github.io/AINewsCurator/',
-  },
-  {
-    name: 'Mart Wine RAG',
-    desc: {
-      en: 'Bilingual (KR/EN) retrieval-augmented wine recommender for bottles actually stocked in Korean marts — multilingual E5 embeddings, vector search over a curated 108-wine catalog, and a Streamlit chat that shows exactly which rows grounded each answer. Ships with a Recall@5/MRR retrieval eval.',
-      ko: '한국 마트에 실제로 입고된 와인만을 대상으로 하는 한/영 이중언어 RAG 와인 추천기 — multilingual E5 임베딩, 큐레이션된 108종 와인 카탈로그에 대한 벡터 검색, 각 답변의 근거가 된 행을 정확히 보여주는 Streamlit 챗봇으로 구성됩니다. Recall@5/MRR 검색 성능 평가도 함께 제공합니다.',
-    },
-    img: '/projects/mart-wine-rag.png',
-    tags: [
-      { en: 'RAG', ko: 'RAG' },
-      { en: 'Vector Search', ko: '벡터 검색' },
-      { en: 'Python', ko: 'Python' },
-    ],
-    link: 'https://github.com/Hakhyun-Kim/mart-wine-rag',
-  },
-  {
     name: 'MathMath (수학수학)',
     desc: {
       en: 'Android math-learning app covering all six elementary grades — adaptive problem generation, step-by-step long-arithmetic walkthroughs. Designed, built, and prepared for Play Store release end-to-end with an AI-agent workflow.',
@@ -337,6 +309,29 @@ const research = [
     },
     links: [
       { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/pose-estimation-study' },
+    ],
+  },
+  {
+    title: { en: 'Keyless RAG in the browser', ko: '브라우저에서 도는 키 불필요 RAG' },
+    repo: 'AINewsCurator',
+    desc: {
+      en: 'Economy and business news from the last 24 hours, politics and sports filtered out, plus an "ask the news" mode that cites a source on every claim in Korean or English. The whole retrieval loop is keyless — embeddings and generation both run on-device via WebGPU, so there is no server and no API key, and it upgrades to OpenAI only if you supply one.',
+      ko: '정치·스포츠는 걸러내고 지난 24시간의 경제·비즈니스 뉴스만 보여주며, "뉴스에 물어보기" 모드는 모든 답변에 출처를 달아 한국어 또는 영어로 답합니다. 검색 루프 전체가 키 불필요 — 임베딩과 생성 모두 WebGPU로 온디바이스 실행되므로 서버도 API 키도 없고, 직접 키를 넣으면 그때만 OpenAI로 업그레이드됩니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/AINewsCurator' },
+      { label: { en: 'Live demo', ko: '데모' }, url: 'https://hakhyun-kim.github.io/AINewsCurator/' },
+    ],
+  },
+  {
+    title: { en: 'Grounded retrieval, measured', ko: '근거 기반 검색과 성능 측정' },
+    repo: 'mart-wine-rag',
+    desc: {
+      en: 'A bilingual (KR/EN) wine recommender restricted to bottles actually stocked in Korean marts — multilingual E5 embeddings, vector search over a curated 108-wine catalog, and a chat that shows exactly which rows grounded each answer. The point of the exercise is the retrieval eval that ships with it: Recall@5 and MRR, so quality is a number rather than a vibe.',
+      ko: '한국 마트에 실제로 입고된 와인만 다루는 한/영 이중언어 추천기 — multilingual E5 임베딩, 큐레이션된 108종 카탈로그에 대한 벡터 검색, 각 답변의 근거가 된 행을 그대로 보여주는 챗봇입니다. 이 실험의 핵심은 함께 제공되는 검색 성능 평가로, Recall@5와 MRR을 재서 품질을 감이 아니라 숫자로 확인합니다.',
+    },
+    links: [
+      { label: { en: 'Repo', ko: '저장소' }, url: 'https://github.com/Hakhyun-Kim/mart-wine-rag' },
     ],
   },
   {
@@ -418,15 +413,17 @@ const alternate = isKo ? '/' : '/ko/';
       )}
       {isKo ? (
         <p class="now">
-          📚 공개적으로 공부하며 기록 중입니다 — <strong>딥러닝</strong>(Stanford 40 Actions로
-          ResNet18 파인튜닝, MPII 포즈 추정)과 <strong>시뮬레이션·로보틱스</strong>(Isaac Sim,
-          CAD → OpenUSD 변환). <a href="#research">연구 &amp; 스터디 보기 →</a>
+          📚 공개적으로 공부하며 기록 중입니다 — <strong>딥러닝</strong>(Stanford 40 Actions,
+          MPII 포즈 추정), <strong>검색 증강 생성(RAG)</strong>,
+          <strong>시뮬레이션·로보틱스</strong>(Isaac Sim, CAD → OpenUSD 변환).
+          <a href="#research">연구 &amp; 스터디 보기 →</a>
         </p>
       ) : (
         <p class="now">
-          📚 Studying in public — <strong>deep learning</strong> (ResNet18 on Stanford 40
-          Actions, pose estimation on MPII) and <strong>simulation &amp; robotics</strong>
-          (Isaac Sim, CAD → OpenUSD). <a href="#research">See research &amp; study →</a>
+          📚 Studying in public — <strong>deep learning</strong> (Stanford 40 Actions, MPII
+          pose), <strong>retrieval-augmented generation</strong>, and
+          <strong>simulation &amp; robotics</strong> (Isaac Sim, CAD → OpenUSD).
+          <a href="#research">See research &amp; study →</a>
         </p>
       )}
       <div class="hero-actions">
@@ -509,8 +506,8 @@ const alternate = isKo ? '/' : '/ko/';
     <h2 class="section-title">{isKo ? '연구 & 스터디' : 'Research & Study'}</h2>
     <p class="section-note">
       {isKo
-        ? '공개적으로 공부하는 중입니다 — 딥러닝, 그리고 시뮬레이션·로보틱스. 모든 실험은 스크립트로 재현 가능하며, 실패한 것까지 함께 기록합니다.'
-        : 'Learning in public — deep learning, plus simulation and robotics. Every experiment is scripted and reproducible, and the failures are written down too.'}
+        ? '공개적으로 공부하는 중입니다 — 딥러닝, 검색 증강 생성(RAG), 그리고 시뮬레이션·로보틱스. 모든 실험은 스크립트로 재현 가능하며, 실패한 것까지 함께 기록합니다.'
+        : 'Learning in public — deep learning, retrieval-augmented generation, and simulation & robotics. Every experiment is scripted and reproducible, and the failures are written down too.'}
     </p>
     <div class="research">
       {
