@@ -1,0 +1,74 @@
+<svg viewBox="0 0 1600 1000" width="1600" height="1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agentic GameDev Playbook — AI builds and AI verifies: docs, Claude Code skill, and MCP server">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1a1430"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#79c0ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- wordmark -->
+  <text x="90" y="140" font-family="'Segoe UI', system-ui, sans-serif" font-size="80" font-weight="700" fill="#e6edf3">Agentic GameDev <tspan fill="url(#accent)">Playbook</tspan></text>
+  <text x="90" y="196" font-family="'Segoe UI', system-ui, sans-serif" font-size="34" fill="#8b98ab">AI builds it, AI verifies it — docs · Claude Code skill · zero-dependency MCP server</text>
+
+  <!-- badges -->
+  <g font-family="Consolas, Menlo, monospace" font-size="26" fill="#a78bfa">
+    <rect x="90" y="230" width="212" height="46" rx="23" fill="none" stroke="#3a2f5c"/>
+    <text x="196" y="261" text-anchor="middle">4 games proven</text>
+    <rect x="320" y="230" width="188" height="46" rx="23" fill="none" stroke="#3a2f5c"/>
+    <text x="414" y="261" text-anchor="middle">zero assets</text>
+    <rect x="526" y="230" width="164" height="46" rx="23" fill="none" stroke="#3a2f5c"/>
+    <text x="608" y="261" text-anchor="middle">zero deps</text>
+    <rect x="708" y="230" width="120" height="46" rx="23" fill="none" stroke="#3a2f5c"/>
+    <text x="768" y="261" text-anchor="middle">MIT</text>
+  </g>
+
+  <!-- pipeline -->
+  <g font-family="'Segoe UI', system-ui, sans-serif" font-size="27" fill="#c9d1d9" text-anchor="middle">
+    <rect x="90" y="320" width="248" height="66" rx="14" fill="#141c2e" stroke="#2b3b57"/>
+    <text x="214" y="361">design</text>
+    <rect x="368" y="320" width="248" height="66" rx="14" fill="#141c2e" stroke="#2b3b57"/>
+    <text x="492" y="361">implement</text>
+    <rect x="646" y="320" width="308" height="66" rx="14" fill="#1c1836" stroke="#5b46a0"/>
+    <text x="800" y="361" fill="#c4b5fd">balance-test</text>
+    <rect x="984" y="320" width="248" height="66" rx="14" fill="#1c1836" stroke="#5b46a0"/>
+    <text x="1108" y="361" fill="#c4b5fd">verify</text>
+    <rect x="1262" y="320" width="248" height="66" rx="14" fill="#141c2e" stroke="#2b3b57"/>
+    <text x="1386" y="361">ship</text>
+  </g>
+  <g font-family="Consolas, Menlo, monospace" font-size="30" fill="#5b6980" text-anchor="middle">
+    <text x="353" y="363">→</text>
+    <text x="631" y="363">→</text>
+    <text x="969" y="363">→</text>
+    <text x="1247" y="363">→</text>
+  </g>
+
+  <!-- terminal window -->
+  <rect x="90" y="428" width="1420" height="452" rx="18" fill="#0d1117" stroke="#2b3b57" stroke-width="2"/>
+  <rect x="90" y="428" width="1420" height="56" rx="18" fill="#161e2c"/>
+  <rect x="90" y="464" width="1420" height="20" fill="#161e2c"/>
+  <circle cx="130" cy="456" r="9" fill="#ff5f57"/>
+  <circle cx="162" cy="456" r="9" fill="#febc2e"/>
+  <circle cx="194" cy="456" r="9" fill="#28c840"/>
+  <text x="800" y="465" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="24" fill="#8b98ab">balance bot — nightly regression gate</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="29">
+    <text x="130" y="540" fill="#7ee787">&gt; npm run balance<tspan fill="#c9d1d9"> -- --runs=</tspan><tspan fill="#ffa657">600</tspan><tspan fill="#c9d1d9"> --seedset=</tspan><tspan fill="#a5d6ff">nightly</tspan></text>
+    <text x="130" y="596" fill="#8b98ab">simulating novice / normal / expert bots ...</text>
+    <text x="130" y="652" fill="#c9d1d9">death distribution   <tspan fill="#79c0ff">p50</tspan> floor 41   <tspan fill="#79c0ff">p90</tspan> floor 78</text>
+    <text x="130" y="708" fill="#c9d1d9">baseline drift       <tspan fill="#7ee787">within tolerance</tspan></text>
+    <text x="130" y="764" fill="#c9d1d9">decision-point EV    <tspan fill="#7ee787">no dominant choice</tspan></text>
+    <text x="130" y="820" fill="#7ee787">✓ gate passed<tspan fill="#8b98ab"> — no balance issue filed</tspan></text>
+  </g>
+
+  <!-- tool list -->
+  <text x="90" y="932" font-family="Consolas, Menlo, monospace" font-size="26" fill="#8b98ab">mcp tools: <tspan fill="#a78bfa">playbook_toc · playbook_section · playbook_checklist · playbook_full</tspan></text>
+
+  <!-- footer -->
+  <text x="90" y="976" font-family="'Segoe UI', system-ui, sans-serif" font-size="26" fill="#5b6980">github.com/Hakhyun-Kim/agentic-gamedev-playbook</text>
+</svg>
