@@ -233,6 +233,20 @@ const projects = [
     link: 'https://hakhyun-kim.github.io/dungeon100/',
   },
   {
+    name: 'DefenseHero (용사 수학 디펜스)',
+    desc: {
+      en: 'Browser-playable 3D tower defense for kids where math *is* the growth mechanic — heroes only get stronger by fusing, and every fusion opens a math problem whose difficulty is set by what you are trying to build (grade 3–6 curriculum × five difficulty tiers, up to a two-problem gate for the mythic tier). Vanilla JS + three.js with zero external assets: the castle, terrain, and hero figures are generated in code, and all 30-odd sound effects plus four adaptive BGM tracks are synthesized live in Web Audio — not a single media file ships. Difficulty was tuned by a bot that plays hundreds of runs across three skill profiles, with a baseline file that fails the check when the median wave drifts.',
+      ko: '수학이 곧 성장 시스템인 브라우저 3D 타워 디펜스 — 용사는 오직 조합으로만 강해지고, 조합할 때마다 수학 문제가 열립니다. 문제 난이도는 지금 만들려는 용사가 정합니다(3~6학년 교과 범위 × 5단계 난이도, 신화 조합은 2문제 연속 관문). Vanilla JS + three.js, 외부 에셋 0개 — 성·지형·사람 모양 용사를 코드로 생성하고, 효과음 30여 종과 상황별 BGM 4트랙을 전부 Web Audio로 실시간 합성해 미디어 파일이 하나도 없습니다. 난이도는 실력 프로필 3종으로 수백 판을 자동 플레이하는 밸런스 봇으로 조정했고, 기준선에서 중앙값이 벗어나면 회귀 검사가 실패합니다.',
+    },
+    img: '/projects/defensehero.jpg',
+    tags: [
+      { en: 'three.js', ko: 'three.js' },
+      { en: 'Playable in browser', ko: '브라우저 플레이 가능' },
+      { en: 'EdTech', ko: '에듀테크' },
+    ],
+    link: 'https://hakhyun-kim.github.io/defenehero/',
+  },
+  {
     name: 'Agentic GameDev Playbook',
     desc: {
       en: 'The methodology behind the games above, written down: the AI designs, implements, balance-tests by playing hundreds of simulated runs itself, verifies through a harness it drives, and ships. Generalized from four games across different genres and frameworks — a 3D roguelike, a tower defense, a 2D runner, and an on-chain multiplayer social world — including the awkward fourth one that has no death distribution to measure, which is what forced the source-cross-check and clock-injection chapters. Ships three ways from one source: docs, a Claude Code skill, and a zero-dependency MCP server, with CI that breaks when the three drift apart.',
