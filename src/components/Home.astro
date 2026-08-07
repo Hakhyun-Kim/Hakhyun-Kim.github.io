@@ -21,140 +21,90 @@ const experience = [
     role: 'Ecosystem Engineer / Games Tech Lead, APAC',
     period: '2022 – 2024',
     location: { en: 'Remote', ko: '리모트' },
-    points: [
-      {
-        en: 'Technical thought partner to game studios and startups across APAC — often working directly with founders and CTOs, from ideation to scale.',
-        ko: 'APAC 전역의 게임 스튜디오와 스타트업을 위한 기술 자문 파트너 — 창업자·CTO급 카운터파트와 직접 협업하며 아이디어 단계부터 스케일업까지 함께했습니다.',
-      },
-      {
-        en: 'Shipped open-source Unreal Engine and Unity SDKs, prototyped alongside developers, and designed blockchain infrastructure for games.',
-        ko: '오픈소스 Unreal Engine·Unity SDK를 공개하고, 개발자들과 함께 프로토타입을 만들고, 게임을 위한 블록체인 인프라를 설계했습니다.',
-      },
-      {
-        en: 'Engaged with regulators, banks, and exchanges across APAC — regulatory discussions and operational work for the ecosystem.',
-        ko: 'APAC 전역의 규제기관·은행·거래소와 협업 — 생태계를 위한 규제 논의 및 운영 업무를 진행했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Technical partner to game studios and startups across APAC — open-source Unreal and Unity SDKs, prototypes built alongside founders, and on-chain infrastructure for games.',
+      ko: 'APAC 게임 스튜디오·스타트업의 기술 파트너 — 오픈소스 Unreal·Unity SDK를 공개하고, 창업자들과 함께 프로토타입을 만들고, 게임을 위한 온체인 인프라를 설계했습니다.',
+    },
   },
   {
     company: 'Unity Technologies',
     role: 'Senior Developer Support Engineer',
     period: '2020 – 2022',
     location: { en: 'Seoul, Korea', ko: '서울' },
-    points: [
-      {
-        en: 'Resolved complex 3D graphics, rendering, and performance issues for studios from indie to AAA.',
-        ko: '인디부터 AAA까지 다양한 스튜디오의 복잡한 3D 그래픽·렌더링·성능 이슈를 해결했습니다.',
-      },
-      {
-        en: 'Built debugging methodologies and profiling techniques for real-time applications; supported deterministic physics with Unity DOTS.',
-        ko: '실시간 애플리케이션을 위한 디버깅 방법론과 프로파일링 기법을 정립했고, Unity DOTS 결정론적 물리 지원을 담당했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Graphics, rendering, and performance escalations for studios from indie to AAA — plus profiling methodology and deterministic physics with DOTS.',
+      ko: '인디부터 AAA까지, 그래픽·렌더링·성능 에스컬레이션을 해결하고 프로파일링 방법론과 DOTS 결정론적 물리를 지원했습니다.',
+    },
   },
   {
     company: '42dot',
     role: 'Simulation Engineer',
     period: '2020',
     location: { en: 'Seoul, Korea', ko: '서울' },
-    points: [
-      {
-        en: 'Built a high-fidelity Unreal Engine 4 simulator for autonomous-vehicle sensor validation — end-to-end C++ pipelines benchmarking LiDAR, radar, and camera suites on CARLA.',
-        ko: '자율주행 센서 검증을 위한 고정밀 Unreal Engine 4 시뮬레이터 구축 — CARLA 상에서 LiDAR·레이더·카메라 스위트를 벤치마킹하는 C++ 파이프라인을 엔드투엔드로 설계했습니다.',
-      },
-      {
-        en: 'Contributed to the CARLA open-source simulator (PR #2916, merged to master); optimized real-time rendering and physics to hold frame rates during complex sensor data generation.',
-        ko: '오픈소스 CARLA 시뮬레이터에 기여했으며(PR #2916, master 머지), 복잡한 센서 데이터 생성 중에도 프레임레이트를 유지하도록 실시간 렌더링과 물리를 최적화했습니다.',
-      },
-    ],
+    summary: {
+      en: 'A high-fidelity UE4 + CARLA simulator for autonomous-vehicle sensor validation, benchmarking LiDAR, radar, and camera suites — with PR #2916 merged into CARLA itself.',
+      ko: '자율주행 센서 검증을 위한 고정밀 UE4 + CARLA 시뮬레이터로 LiDAR·레이더·카메라를 벤치마킹했고, CARLA 본체에 PR #2916이 머지됐습니다.',
+    },
   },
   {
     company: 'Varjo',
     role: 'Unreal Developer — VR/XR',
     period: '2018 – 2020',
     location: { en: 'Helsinki, Finland', ko: '헬싱키, 핀란드' },
-    points: [
-      {
-        en: "Customized Unreal Engine post-processing for Varjo's quad-view (human-eye-resolution) rendering; optimized CPU threading and GPU pipelines for low-latency VR.",
-        ko: 'Varjo의 쿼드뷰(human-eye-resolution) 렌더링을 위해 Unreal Engine 포스트프로세싱을 커스터마이징했고, 저지연 VR을 위한 CPU 스레딩과 GPU 파이프라인을 최적화했습니다.',
-      },
-      {
-        en: 'Built enterprise MR applications on OpenXR — engine integration open-sourced at varjoepic/UnrealEngine.',
-        ko: 'OpenXR 기반 엔터프라이즈 MR 애플리케이션을 개발했으며, 엔진 통합 코드는 varjoepic/UnrealEngine에 오픈소스로 공개했습니다.',
-      },
-      {
-        en: 'Built virtual camera rigs replicating the pass-through cameras (FOV, lens distortion, focal length), and ran the headset hardware test process — automated + manual suites with image-comparison verification of rendering output.',
-        ko: '패스스루 카메라의 FOV·렌즈 왜곡·초점거리를 재현하는 가상 카메라 리그를 구축했고, 렌더링 출력을 이미지 비교로 검증하는 자동·수동 테스트 스위트로 헤드셋 하드웨어 테스트 프로세스를 운영했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Unreal customized for quad-view human-eye-resolution rendering, enterprise MR on OpenXR (open-sourced at varjoepic/UnrealEngine), and the headset hardware test process.',
+      ko: 'human-eye-resolution 쿼드뷰 렌더링을 위한 Unreal 커스터마이징, OpenXR 기반 엔터프라이즈 MR(varjoepic/UnrealEngine 공개), 그리고 헤드셋 하드웨어 테스트 프로세스를 담당했습니다.',
+    },
   },
   {
     company: 'Critical Force',
     role: 'Senior Programmer',
     period: '2017 – 2018',
     location: { en: 'Kajaani, Finland', ko: '카야니, 핀란드' },
-    points: [
-      {
-        en: 'Critical Ops (real-time multiplayer FPS): server-side validation including live anti-cheat response to hacking incidents, live-ops telemetry, physics — plus memory-leak hunting and crash reduction in C++.',
-        ko: 'Critical Ops(실시간 멀티플레이어 FPS): 라이브 해킹·치팅 대응을 포함한 서버 사이드 검증, 라이브 운영 텔레메트리, 물리 시뮬레이션 — 더불어 C++ 메모리 릭 추적 및 크래시 개선.',
-      },
-    ],
+    summary: {
+      en: 'Critical Ops (real-time multiplayer FPS) — server-side validation, live anti-cheat response, telemetry, and C++ crash and memory-leak work.',
+      ko: 'Critical Ops(실시간 멀티플레이어 FPS) — 서버 사이드 검증, 라이브 치팅 대응, 텔레메트리, C++ 크래시·메모리 릭 개선.',
+    },
   },
   {
     company: 'NEXON Korea',
     role: 'Senior Programmer',
     period: '2015 – 2017',
     location: { en: 'Seongnam, Korea', ko: '성남' },
-    points: [
-      {
-        en: 'C++/Unreal Engine 4 online action game on Unreal dedicated servers — PhysX-based physics & simulation systems, and boss-monster AI built on UE4 Behavior Trees.',
-        ko: 'C++/Unreal Engine 4 기반 온라인 액션 게임 개발(언리얼 데디케이티드 서버) — PhysX 기반 물리·시뮬레이션 시스템과 UE4 비헤이비어 트리 기반 보스 몬스터 AI를 담당했습니다.',
-      },
-      {
-        en: 'Custom Blueprint nodes and content workflows; introduced code review to the team, set up UE4 build automation, and mentored junior programmers.',
-        ko: '커스텀 Blueprint 노드와 콘텐츠 워크플로우 개발 — 팀에 코드 리뷰를 도입하고 UE4 빌드 자동화를 구축했으며, 후임 프로그래머를 멘토링했습니다.',
-      },
-    ],
+    summary: {
+      en: 'A C++/UE4 online action game on dedicated servers — PhysX-based simulation systems, Behavior Tree boss AI, custom Blueprint nodes, and build automation.',
+      ko: 'C++/UE4 온라인 액션 게임(데디케이티드 서버) — PhysX 기반 시뮬레이션 시스템, 비헤이비어 트리 보스 AI, 커스텀 Blueprint 노드와 빌드 자동화.',
+    },
   },
   {
     company: 'Havok (Trinigy → Intel)',
     role: 'Korea Technical Team Manager',
     period: '2010 – 2014',
     location: { en: 'Germany / Korea', ko: '독일 / 한국' },
-    points: [
-      {
-        en: 'Engineer at Trinigy HQ (Vision Engine) — worked directly on the Direct3D 9 / 11 rendering backends — then founding member of the Havok Korea office after the acquisition, leading engine & middleware support across Korea and Asia (Havok Physics / Animation / AI / Vision, on PlayStation, Xbox, Wii, Windows).',
-        ko: '비전 엔진(Vision Engine)을 개발한 Trinigy 독일 본사에서 Direct3D 9/11 렌더링 백엔드를 직접 개발했고, 인수 이후에는 하복 한국 지사 창립 멤버로 한국·아시아 전역의 엔진/미들웨어 지원(Havok Physics/Animation/AI/Vision, PlayStation·Xbox·Wii·Windows)을 이끌었습니다.',
-      },
-      {
-        en: 'Code review on engine code and CI-based automated regression testing; delivered C++ workshops, recruited and assessed support engineers, and maintained key customer relationships through two acquisitions.',
-        ko: '엔진 코드 리뷰와 CI 기반 자동 회귀 테스트를 수행했고, C++ 워크숍 진행과 지원 엔지니어 채용·평가를 담당하며 두 차례의 인수 과정에서도 핵심 고객 관계를 유지했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Direct3D 9/11 rendering backends at Trinigy HQ, then founding member of Havok Korea — leading engine and middleware support across Asia on PlayStation, Xbox, Wii, and Windows.',
+      ko: 'Trinigy 독일 본사에서 Direct3D 9/11 렌더링 백엔드를 개발했고, 인수 후 하복 한국 지사 창립 멤버로 PlayStation·Xbox·Wii·Windows 전반의 엔진/미들웨어 지원을 아시아 전역에서 이끌었습니다.',
+    },
   },
   {
     company: 'GoldEngine Soft',
     role: 'Founding Engineer',
     period: '2008 – 2009',
     location: { en: 'Shanghai, China', ko: '중국 상하이' },
-    points: [
-      {
-        en: 'Built core game-engine modules, tooling, and CI/CD infrastructure from scratch in C++.',
-        ko: 'C++로 게임 엔진 핵심 모듈, 툴링, CI/CD 인프라를 처음부터 구축했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Core game-engine modules, tooling, and CI/CD infrastructure built from scratch in C++.',
+      ko: 'C++로 게임 엔진 핵심 모듈과 툴링, CI/CD 인프라를 처음부터 구축했습니다.',
+    },
   },
   {
     company: 'Gravity',
     role: 'Client Programmer — Ragnarok Online',
     period: '2003 – 2005',
     location: { en: 'Seoul, Korea', ko: '서울' },
-    points: [
-      {
-        en: "Overseas client development (IME, localization) for one of Korea's most iconic MMORPGs — an in-house engine with a dedicated-server architecture, serving 1M+ concurrent players across 10+ countries.",
-        ko: '한국을 대표하는 MMORPG의 해외 클라이언트 개발(IME, 로컬라이징) — 자체 엔진과 데디케이티드 서버 구조로 10여 개국 100만 동시접속을 지원했습니다.',
-      },
-    ],
+    summary: {
+      en: 'Overseas client development (IME, localization) for an in-house-engine MMORPG serving 1M+ concurrent players across 10+ countries.',
+      ko: '자체 엔진 MMORPG의 해외 클라이언트 개발(IME·로컬라이징) — 10여 개국 100만 동시접속을 지원했습니다.',
+    },
   },
 ];
 
@@ -209,6 +159,20 @@ const slides = [
 
 const projects = [
   {
+    name: 'Agentic GameDev Playbook',
+    desc: {
+      en: 'The method behind everything below, written down: the AI designs, implements, balance-tests by playing hundreds of simulated runs itself, verifies through a harness it drives, and ships. Generalized from four games across different genres and frameworks — a 3D roguelike, a tower defense, a 2D runner, and an on-chain multiplayer social world — including the awkward fourth one that has no death distribution to measure, which is what forced the source-cross-check and clock-injection chapters. Ships three ways from one source: docs, a Claude Code skill, and a zero-dependency MCP server, with CI that breaks when the three drift apart.',
+      ko: '아래 게임들을 만든 방법론을 문서로 정리한 저장소 — AI가 기획하고, 구현하고, 수백 판의 시뮬레이션을 직접 플레이해 밸런싱하고, 스스로 조작하는 검증 하네스로 확인한 뒤 배포합니다. 장르와 프레임워크가 다른 게임 4종(3D 로그라이크, 타워 디펜스, 2D 러너, 온체인 멀티플레이 소셜)에서 반복 검증했으며, 사망 분포를 뽑을 수 없어 모양이 달랐던 네 번째 프로젝트가 소스 대조 검사와 시계 주입 장(章)을 만들어냈습니다. 하나의 원천에서 문서 · Claude Code 스킬 · 의존성 0개 MCP 서버 세 형태로 제공되며, 셋이 어긋나면 CI가 깨집니다.',
+    },
+    img: '/projects/agentic-gamedev-playbook.svg',
+    tags: [
+      { en: 'Agentic AI', ko: '에이전틱 AI' },
+      { en: 'MCP', ko: 'MCP' },
+      { en: 'Claude Code Skill', ko: 'Claude Code 스킬' },
+    ],
+    link: 'https://github.com/Hakhyun-Kim/agentic-gamedev-playbook',
+  },
+  {
     name: 'GIWA Village (기와장터)',
     desc: {
       en: 'Fully serverless on-chain hanok marketplace — connect a wallet, roam a 3D village as your avatar, open a street stall, haggle, and gift ERC-1155 coupons. No game server: 10 verified Solidity contracts on GIWA Sepolia handle stalls with escrow, guild co-op dungeons, a weekly boss fight, a campfire "warmth" mechanic, and a user-generated cosmetics workshop, plus a read SDK so external apps can query a wallet\'s on-chain social profile. An on-chain retelling of the Ragnarok Prontera stall culture I started my career on — with a public dev journal tracking the build.',
@@ -249,20 +213,6 @@ const projects = [
       { en: 'EdTech', ko: '에듀테크' },
     ],
     link: 'https://hakhyun-kim.github.io/defenehero/',
-  },
-  {
-    name: 'Agentic GameDev Playbook',
-    desc: {
-      en: 'The methodology behind the games above, written down: the AI designs, implements, balance-tests by playing hundreds of simulated runs itself, verifies through a harness it drives, and ships. Generalized from four games across different genres and frameworks — a 3D roguelike, a tower defense, a 2D runner, and an on-chain multiplayer social world — including the awkward fourth one that has no death distribution to measure, which is what forced the source-cross-check and clock-injection chapters. Ships three ways from one source: docs, a Claude Code skill, and a zero-dependency MCP server, with CI that breaks when the three drift apart.',
-      ko: '위 게임들을 만든 방법론을 문서로 정리한 저장소 — AI가 기획하고, 구현하고, 수백 판의 시뮬레이션을 직접 플레이해 밸런싱하고, 스스로 조작하는 검증 하네스로 확인한 뒤 배포합니다. 장르와 프레임워크가 다른 게임 4종(3D 로그라이크, 타워 디펜스, 2D 러너, 온체인 멀티플레이 소셜)에서 반복 검증했으며, 사망 분포를 뽑을 수 없어 모양이 달랐던 네 번째 프로젝트가 소스 대조 검사와 시계 주입 장(章)을 만들어냈습니다. 하나의 원천에서 문서 · Claude Code 스킬 · 의존성 0개 MCP 서버 세 형태로 제공되며, 셋이 어긋나면 CI가 깨집니다.',
-    },
-    img: '/projects/agentic-gamedev-playbook.svg',
-    tags: [
-      { en: 'Agentic AI', ko: '에이전틱 AI' },
-      { en: 'MCP', ko: 'MCP' },
-      { en: 'Claude Code Skill', ko: 'Claude Code 스킬' },
-    ],
-    link: 'https://github.com/Hakhyun-Kim/agentic-gamedev-playbook',
   },
   {
     name: 'MathMath (수학수학)',
@@ -379,32 +329,21 @@ const research = [
 
 const skills = [
   { en: 'C / C++', ko: 'C / C++' },
-  { en: 'C#', ko: 'C#' },
   { en: 'Python', ko: 'Python' },
   { en: 'TypeScript', ko: 'TypeScript' },
-  { en: 'Unreal Engine', ko: 'Unreal Engine' },
-  { en: 'Unity', ko: 'Unity' },
-  { en: 'OpenXR / VR / MR', ko: 'OpenXR / VR / MR' },
-  { en: 'CARLA / AV Simulation', ko: 'CARLA / 자율주행 시뮬레이션' },
-  { en: 'Performance Profiling', ko: '성능 프로파일링' },
-  { en: '3D Graphics Pipeline', ko: '3D 그래픽스 파이프라인' },
-  { en: 'Multi-platform (PS / Xbox / Mobile)', ko: '멀티플랫폼(PS/Xbox/모바일)' },
-  { en: 'Developer Relations', ko: '개발자 관계(DevRel)' },
-  { en: 'Technical Writing', ko: '기술 문서 작성' },
-  { en: 'Blockchain / Web3', ko: '블록체인 / Web3' },
-  { en: 'Solidity / Smart Contracts', ko: 'Solidity / 스마트 컨트랙트' },
-  { en: 'AI-agent Workflows', ko: 'AI 에이전트 워크플로우' },
-  { en: 'RAG / Vector Search', ko: 'RAG / 벡터 검색' },
-  { en: 'MCP Servers', ko: 'MCP 서버' },
-  { en: 'Docker / GitHub Actions', ko: 'Docker / GitHub Actions' },
+  { en: 'Unreal Engine · Unity', ko: 'Unreal Engine · Unity' },
+  { en: 'Real-time 3D & graphics', ko: '실시간 3D & 그래픽스' },
+  { en: 'Simulation (CARLA · Isaac Sim)', ko: '시뮬레이션(CARLA · Isaac Sim)' },
+  { en: 'AI-agent workflows', ko: 'AI 에이전트 워크플로우' },
+  { en: 'On-chain (Solidity)', ko: '온체인(Solidity)' },
 ];
 
 const title = isKo
-  ? '김학현 — 게임 엔진 & 실시간 3D 소프트웨어 엔지니어'
-  : 'Hakhyun Kim — Software Engineer · Game & Real-time 3D';
+  ? '김학현 — 실시간 3D & 에이전틱 게임 개발'
+  : 'Hakhyun Kim — Real-time 3D & Agentic Game Development';
 const description = isKo
-  ? '김학현 — 게임 엔진, 실시간 3D, XR, 개발자 관계(DevRel) 전문 소프트웨어 엔지니어.'
-  : 'Hakhyun Kim — software engineer specializing in game engines, real-time 3D, XR, and developer relations.';
+  ? '김학현 — 게임 엔진·XR·시뮬레이션 등 실시간 3D 소프트웨어를 만들고, AI 에이전트가 기획·밸런싱·검증까지 맡는 개발 방식을 실험하고 기록합니다.'
+  : 'Hakhyun Kim builds real-time 3D software — game engines, XR, simulation — and writes down what happens when AI agents do the designing, balancing, and verifying.';
 const alternate = isKo ? '/' : '/ko/';
 ---
 
@@ -420,38 +359,38 @@ const alternate = isKo ? '/' : '/ko/';
       <h1>Hakhyun <span class="gradient-text">Kim</span></h1>
       {isKo ? (
         <p class="tagline">
-          게임, 게임 엔진, XR, 시뮬레이션, <strong>개발자 관계(DevRel)</strong> 분야에서 15년 이상
-          일해온 소프트웨어 엔지니어입니다. 라그나로크 온라인 클라이언트 코드로 시작해 하복(Havok)과
-          유니티(Unity)에서 엔진 지원을, Varjo에서 human-eye-resolution VR을, 42dot에서 자율주행
-          시뮬레이션을, 솔라나 재단에서 게임 생태계 엔지니어링을 거쳤습니다.
+          실시간으로 도는 소프트웨어를 만듭니다 — 게임 엔진, XR, 시뮬레이션. 요즘은 한 가지 질문에
+          매달려 있습니다: <strong>AI 에이전트가 기획하고, 밸런싱하고, 검증까지 한다면 엔지니어
+          한 명은 어디까지 갈 수 있을까?</strong> 장르가 다른 게임 네 편, 그리고 누구나 그대로
+          실행할 수 있게 정리한 방법론이 지금까지의 답입니다.
         </p>
       ) : (
         <p class="tagline">
-          Software engineer with 15+ years across <strong>games, game engines, XR, simulation, and
-          developer relations</strong> — from Ragnarok Online client code to engine support at Havok
-          and Unity, human-eye-resolution VR at Varjo, autonomous-driving simulation at 42dot, and
-          games ecosystem engineering at Solana Foundation.
+          I build software that runs in real time — game engines, XR, simulation. Lately I've been
+          working on one question: <strong>how far can a single engineer get when AI agents do the
+          designing, the balancing, and the verifying?</strong> Four games in four genres so far,
+          and the method written down so anyone can run it.
         </p>
       )}
       {isKo ? (
         <p class="now">
-          📚 공개적으로 공부하며 기록 중입니다 — <strong>딥러닝</strong>(Stanford 40 Actions,
-          MPII 포즈 추정), <strong>검색 증강 생성(RAG)</strong>,
-          <strong>시뮬레이션·로보틱스</strong>(Isaac Sim, CAD → OpenUSD 변환).
-          2026년 7월부터는 <strong>원티드 포텐업 AI 에이전트 개발 트랙</strong>을 수강 중입니다.
+          그 질문은 2003년부터의 실시간 개발에서 나왔습니다 — 라그나로크 온라인 클라이언트 코드로
+          시작해 하복(Havok)과 유니티(Unity)의 엔진 지원, Varjo의 human-eye-resolution VR,
+          42dot의 자율주행 시뮬레이션, 솔라나 재단의 게임 생태계 엔지니어링을 거쳤습니다.
+          지금도 공개적으로 공부하며 기록합니다 — 딥러닝, RAG, Isaac Sim.
           <a href="#research">연구 &amp; 스터디 보기 →</a>
         </p>
       ) : (
         <p class="now">
-          📚 Studying in public — <strong>deep learning</strong> (Stanford 40 Actions, MPII
-          pose), <strong>retrieval-augmented generation</strong>, and
-          <strong>simulation &amp; robotics</strong> (Isaac Sim, CAD → OpenUSD).
-          Since July 2026, also in <strong>Wanted PotenUp's AI-agent development track</strong>.
+          The question comes out of real-time work since 2003 — Ragnarok Online client code, engine
+          support at Havok and Unity, human-eye-resolution VR at Varjo, autonomous-driving
+          simulation at 42dot, games ecosystem engineering at Solana Foundation. I still study in
+          public: deep learning, RAG, Isaac Sim.
           <a href="#research">See research &amp; study →</a>
         </p>
       )}
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">{isKo ? '연락하기' : 'Get in touch'}</a>
+        <a class="btn btn-primary" href="#projects">{isKo ? '만든 것들 보기' : "See what I'm building"}</a>
         {isKo ? (
           <a class="btn" href="/blog/">블로그 읽기</a>
         ) : (
@@ -464,38 +403,13 @@ const alternate = isKo ? '/' : '/ko/';
     </div>
   </section>
 
-  <!-- experience -->
-  <section id="experience" class="container section">
-    <h2 class="section-title">{isKo ? '경력' : 'Experience'}</h2>
-    <ol class="timeline">
-      {
-        experience.map((job) => (
-          <li>
-            <div class="tl-head">
-              <h3>{job.company}</h3>
-              <span class="tl-period">{job.period}</span>
-            </div>
-            <p class="tl-role">
-              {job.role} · <span class="tl-loc">{job.location[lang]}</span>
-            </p>
-            <ul class="tl-points">
-              {job.points.map((p) => (
-                <li>{p[lang]}</li>
-              ))}
-            </ul>
-          </li>
-        ))
-      }
-    </ol>
-  </section>
-
   <!-- projects -->
   <section id="projects" class="container section">
-    <h2 class="section-title">{isKo ? '최근 프로젝트' : 'Recent Projects'}</h2>
+    <h2 class="section-title">{isKo ? '만들고 있는 것들' : "What I'm Building"}</h2>
     <p class="section-note">
       {isKo
-        ? '2026년, AI 에이전트 개발 워크플로우로 만든 프로젝트들입니다 — 한 명의 엔지니어가 프롬프트에서 출시까지 얼마나 멀리 갈 수 있는지 실험하고 있습니다.'
-        : 'Built in 2026 with AI-agent development workflows — exploring how far one engineer can take an idea from prompt to published product.'}
+        ? '2026년, AI 에이전트 개발 워크플로우로 만든 것들입니다 — 맨 위가 방법론이고, 나머지는 그 방법론이 실제로 통했는지에 대한 증거입니다.'
+        : 'Made in 2026 with AI-agent workflows — the first one is the method, the rest are the evidence that it holds up.'}
     </p>
     <div class="cards">
       {
@@ -603,9 +517,40 @@ const alternate = isKo ? '/' : '/ko/';
     <p><a class="more" href="/blog/">{isKo ? '전체 글 보기 →' : 'All posts →'}</a></p>
   </section>
 
+  <!-- career -->
+  <section id="career" class="container section">
+    <h2 class="section-title">{isKo ? '지나온 길' : 'Where This Came From'}</h2>
+    <p class="section-note">
+      {isKo
+        ? '위의 것들이 딛고 선 20여 년 — 엔진, 미들웨어, XR, 시뮬레이션, 그리고 온체인.'
+        : 'The twenty-odd years the work above stands on — engines, middleware, XR, simulation, and on-chain.'}
+    </p>
+    <ol class="timeline">
+      {
+        experience.map((job) => (
+          <li>
+            <div class="tl-head">
+              <h3>{job.company}</h3>
+              <span class="tl-period">{job.period}</span>
+            </div>
+            <p class="tl-role">
+              {job.role} · <span class="tl-loc">{job.location[lang]}</span>
+            </p>
+            <p class="tl-summary">{job.summary[lang]}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
   <!-- contact -->
   <section id="contact" class="container section">
-    <h2 class="section-title">{isKo ? '연락처' : 'Contact'}</h2>
+    <h2 class="section-title">{isKo ? '인사 나누기' : 'Say Hello'}</h2>
+    <p class="section-note">
+      {isKo
+        ? '엔진, 시뮬레이션, 에이전트 워크플로우에 대한 이야기라면 언제든 환영합니다 — 발표나 워크숍 제안도 마찬가지고요.'
+        : 'Always up for a conversation about engines, simulation, or agent workflows — talks and workshops too.'}
+    </p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:hakhyun.2023@gmail.com">hakhyun.2023@gmail.com</a>
       <a class="btn" href="https://github.com/Hakhyun-Kim" target="_blank" rel="noopener">GitHub</a>
@@ -870,11 +815,11 @@ const alternate = isKo ? '/' : '/ko/';
     font-weight: 400;
   }
 
-  .tl-points {
-    margin-top: 0.4rem;
-    padding-left: 1.2rem;
+  .tl-summary {
+    margin-top: 0.35rem;
     color: var(--text-soft);
     font-size: 0.97rem;
+    max-width: 46rem;
   }
 
   /* project cards */

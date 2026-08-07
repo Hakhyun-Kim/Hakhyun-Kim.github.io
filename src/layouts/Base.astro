@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'Hakhyun Kim — software engineer specializing in game engines, real-time 3D, XR, and developer relations.',
+  description = 'Hakhyun Kim builds real-time 3D software — game engines, XR, simulation — and writes down what happens when AI agents do the designing, balancing, and verifying.',
   lang = 'en',
   alternate,
   autoRedirect = false,
@@ -68,10 +68,10 @@ const prefix = isKo ? '/ko' : '';
           <span class="brand-name">Hakhyun Kim</span>
         </a>
         <div class="nav-links">
-          <a href={`${prefix}/#experience`}>{isKo ? '경력' : 'Experience'}</a>
           <a href={`${prefix}/#projects`}>{isKo ? '프로젝트' : 'Projects'}</a>
           <a href={`${prefix}/#research`}>{isKo ? '연구' : 'Research'}</a>
           <a href="/blog/">{isKo ? '블로그' : 'Blog'}</a>
+          <a href={`${prefix}/#career`}>{isKo ? '경력' : 'Career'}</a>
           <a href={`${prefix}/#contact`}>{isKo ? '연락처' : 'Contact'}</a>
           {alternate && (
             <a href={alternate} id="lang-toggle" data-set-lang={isKo ? 'en' : 'ko'}>

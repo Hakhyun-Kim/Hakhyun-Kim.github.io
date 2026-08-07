@@ -16,9 +16,9 @@ npm run preview  # serve the built site
 
 ## Structure
 
-- `src/components/Home.astro` — the whole portfolio (experience / projects / talks / blog /
-  contact). Content lives in plain arrays at the top of the file; every string carries an
-  `en` and a `ko` variant.
+- `src/components/Home.astro` — the whole site (projects / research / talks / blog / career /
+  contact, in that order — the work leads, the career supports it). Content lives in plain
+  arrays at the top of the file; every string carries an `en` and a `ko` variant.
 - `src/pages/index.astro` (English) and `src/pages/ko/index.astro` (Korean) both render
   `Home.astro` with a `lang` prop — edit the arrays once and both pages update. The English
   page auto-redirects Korean browsers to `/ko/`; the header toggle overrides it.
