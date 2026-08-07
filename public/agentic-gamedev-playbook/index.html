@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic GameDev Playbook & Dev Blog</title>
+  <meta name="description" content="An agentic AI methodology for building games: design, implementation, balance testing, verification and post-launch automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- Top Header -->
+    <header class="main-header">
+      <div class="header-left">
+        <div class="logo-group" id="logoBtn">
+          <span class="logo-icon">🎮</span>
+          <div class="logo-text">
+            <span class="title">Agentic GameDev</span>
+            <span class="subtitle">Playbook & Dev Blog</span>
+          </div>
+        </div>
+        <span class="version-badge" id="versionBadge">v1.37.0</span>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-btn active" data-tab="playbook">
+          <span class="icon">📖</span>
+          <span class="label" data-en="Playbook" data-ko="플레이북">Playbook</span>
+        </button>
+        <button class="nav-btn" data-tab="blog">
+          <span class="icon">📰</span>
+          <span class="label" data-en="Dev Blog" data-ko="개발 블로그">Dev Blog</span>
+        </button>
+        <button class="nav-btn" data-tab="tools">
+          <span class="icon">🛠️</span>
+          <span class="label" data-en="MCP & Tools" data-ko="MCP & 도구">MCP & Tools</span>
+        </button>
+        <button class="nav-btn" data-tab="checklist">
+          <span class="icon">✅</span>
+          <span class="label" data-en="Checklist" data-ko="체크리스트">Checklist</span>
+        </button>
+      </nav>
+
+      <div class="header-right">
+        <!-- Search Input -->
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search chapters & posts... (Press '/' to search)" autocomplete="off">
+          <button id="clearSearch" class="clear-btn hidden">&times;</button>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="lang-switch-group">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="divider">|</span>
+          <button class="lang-btn" data-lang="ko">KO</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Area -->
+    <div class="workspace">
+      <!-- Left Sidebar Nav -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3 id="sidebarTitle" data-en="Chapters" data-ko="목차">Chapters</h3>
+          <span class="count-pill" id="sidebarCount">15</span>
+        </div>
+        <div class="sidebar-scroll" id="sidebarList">
+          <!-- Populated by app.js -->
+        </div>
+      </aside>
+
+      <!-- Main Content Viewer -->
+      <main class="content-viewer" id="mainContent">
+        <!-- Dynamic Views rendered by app.js -->
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <p>© 2026 Hakhyun Kim. MIT Licensed. Agentic GameDev Playbook with Antigravity AI.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Hakhyun-Kim/agentic-gamedev-playbook" target="_blank" rel="noopener">GitHub Repository</a>
+          <span>•</span>
+          <a href="/">Hakhyun Kim</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
