@@ -256,6 +256,33 @@ const projects = [
   },
 ];
 
+const oss = [
+  {
+    title: { en: 'Kiwi — Korean morphological analyzer', ko: 'Kiwi — 한국어 형태소 분석기' },
+    repo: 'bab2min/Kiwi · PR #261 · 2026',
+    desc: {
+      en: 'glue and space existed only in the Python wrapper, so the C, Java and WASM bindings could not use them. Ported both into the C++ core and exposed them through all four bindings, with the candidate analysis in glue moved onto the thread pool. All four layers share one expected-value table taken from kiwipiepy 0.23.2, so a mismatch points straight at the binding or the core. Also fixed a latent JNI marshalling bug that had gone unnoticed because no native method returned an integral array until now.',
+      ko: 'glue와 space가 파이썬 래퍼에만 있어서 C·Java·WASM 바인딩에서는 쓸 수 없었습니다. 두 함수를 C++ 코어로 옮기고 네 바인딩에 모두 노출했으며, glue의 후보 분석은 스레드풀로 넘겼습니다. 네 레이어가 kiwipiepy 0.23.2에서 뽑은 기대값 테이블 하나를 공유하기 때문에, 어긋나면 바인딩 문제인지 코어 문제인지가 바로 드러납니다. 지금까지 정수 배열을 반환하는 네이티브 메소드가 없어 묻혀 있던 JNI 마샬링 버그도 함께 고쳤습니다.',
+    },
+    links: [
+      { label: { en: 'Pull request', ko: '풀 리퀘스트' }, url: 'https://github.com/bab2min/Kiwi/pull/261' },
+      { label: { en: 'Write-up', ko: '작업 기록' }, url: '/blog/2026-08-10-kiwi-space-glue/' },
+    ],
+  },
+  {
+    title: { en: 'CARLA — autonomous driving simulator', ko: 'CARLA — 자율주행 시뮬레이터' },
+    repo: 'carla-simulator/carla · PR #2916 · 2020',
+    desc: {
+      en: 'Debug shapes drawn with debug.draw_line went into the persistent line batcher with collision left on, so vehicles physically bumped into the lines drawn to observe them. Disabling collision on the batcher fixed it in one line — the kind of bug that does not produce wrong numbers so much as quietly plausible ones, for as long as the visualization is switched on.',
+      ko: 'debug.draw_line으로 그린 디버그 셰이프가 충돌이 켜진 채 라인 배처에 올라가서, 관측하려고 그린 선에 차량이 실제로 부딪히고 있었습니다. 배처의 충돌을 꺼서 한 줄로 해결했습니다. 값이 대놓고 틀리는 게 아니라 시각화를 켜둔 동안 계속 그럴듯한 숫자가 나오는 종류의 버그였습니다.',
+    },
+    links: [
+      { label: { en: 'Pull request', ko: '풀 리퀘스트' }, url: 'https://github.com/carla-simulator/carla/pull/2916' },
+      { label: { en: 'Write-up', ko: '작업 기록' }, url: '/blog/2026-08-10-carla-debug-draw-collision/' },
+    ],
+  },
+];
+
 const research = [
   {
     title: { en: 'Image classification', ko: '이미지 분류' },
@@ -460,6 +487,37 @@ const alternate = isKo ? '/' : '/ko/';
                   {l.label[lang]} ↗
                 </a>
               ))}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- open source -->
+  <section id="opensource" class="container section">
+    <h2 class="section-title">{isKo ? '오픈소스 기여' : 'Open Source Contributions'}</h2>
+    <p class="section-note">
+      {isKo
+        ? '쓰다가 막힌 것을 사내 우회로 덮지 않고 위쪽에 올린 것들 — 머지된 PR과, 원인을 어떻게 찾았는지에 대한 기록입니다.'
+        : 'Things I hit while using these projects and pushed upstream instead of patching around locally — the merged PRs, and how the cause was actually found.'}
+    </p>
+    <div class="research">
+      {
+        oss.map((o) => (
+          <article class="study">
+            <h3>{o.title[lang]}</h3>
+            <p class="study-repo">{o.repo}</p>
+            <p>{o.desc[lang]}</p>
+            <p class="study-links">
+              {o.links.map((l) => {
+                const external = l.url.startsWith('http');
+                return (
+                  <a href={l.url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>
+                    {l.label[lang]} {external ? '↗' : '→'}
+                  </a>
+                );
+              })}
             </p>
           </article>
         ))
