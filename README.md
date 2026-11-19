@@ -1,6 +1,6 @@
 # hakhyun-kim.github.io
 
-Personal portfolio & blog of Hakhyun Kim — software engineer (games, engines, XR, DevRel).
+Personal portfolio of Hakhyun Kim — software engineer (build systems & CI/CD, games, engines, XR).
 
 Built with [Astro](https://astro.build), deployed to GitHub Pages by
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on every push to `main`.
@@ -22,7 +22,9 @@ npm run preview  # serve the built site
 - `src/pages/index.astro` (English) and `src/pages/ko/index.astro` (Korean) both render
   `Home.astro` with a `lang` prop — edit the arrays once and both pages update. The English
   page auto-redirects Korean browsers to `/ko/`; the header toggle overrides it.
-- `src/pages/blog/` — blog index and post pages.
+- `src/pages/blog/` — blog index and post pages. **Unlinked since 2026-11-19**: no nav, home-tab or
+  project links point here, and every blog page carries `noindex`. The pages still build, so old
+  direct URLs keep working.
 - `src/layouts/Base.astro` — shared head, header, footer.
 
 ## Content

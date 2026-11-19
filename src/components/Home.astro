@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
 interface Props {
@@ -7,13 +6,6 @@ interface Props {
 }
 const { lang } = Astro.props;
 const isKo = lang === 'ko';
-
-const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
-
-const fmt = (d: Date) =>
-  d.toLocaleDateString(isKo ? 'ko-KR' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
 const experience = [
   {
@@ -370,7 +362,6 @@ const oss = [
     },
     links: [
       { label: { en: 'Pull request', ko: '풀 리퀘스트' }, url: 'https://github.com/bab2min/Kiwi/pull/261' },
-      { label: { en: 'Write-up', ko: '작업 기록' }, url: '/blog/2026-08-10-kiwi-space-glue/' },
     ],
   },
   {
@@ -382,7 +373,6 @@ const oss = [
     },
     links: [
       { label: { en: 'Pull request', ko: '풀 리퀘스트' }, url: 'https://github.com/carla-simulator/carla/pull/2916' },
-      { label: { en: 'Write-up', ko: '작업 기록' }, url: '/blog/2026-08-10-carla-debug-draw-collision/' },
     ],
   },
 ];
@@ -531,9 +521,6 @@ const alternate = isKo ? '/' : '/ko/';
         </button>
         <button class="tab-btn" data-category="opensource">
           🌐 {isKo ? '오픈소스 & 발표' : 'Open Source & Talks'}
-        </button>
-        <button class="tab-btn" data-category="blog">
-          ✍️ {isKo ? '블로그' : 'Blog'}
         </button>
         <button class="tab-btn" data-category="all">
           📄 {isKo ? '전체 보기' : 'View All'}
@@ -718,29 +705,6 @@ const alternate = isKo ? '/' : '/ko/';
       </ul>
     </section>
 
-    <!-- Category 5: Blog -->
-    <section id="blog" class="tab-panel section-panel hidden" data-category="blog">
-      <div class="section-header-box">
-        <h2 class="section-title">{isKo ? '블로그 최근 글' : 'From the Blog'}</h2>
-        <p class="section-note">
-          {isKo ? '개발하며 정리한 생각과 기술 기록들입니다.' : 'Technical writings and personal engineering insights.'}
-        </p>
-      </div>
-
-      <ul class="post-list">
-        {
-          posts.map((post) => (
-            <li>
-              <a href={`/blog/${post.id}/`}>
-                <span class="post-title">{post.data.title}</span>
-                <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <p style="margin-top: 1.2rem;"><a class="more" href="/blog/">{isKo ? '전체 글 목록 보기 →' : 'View all blog posts →'}</a></p>
-    </section>
   </div>
 
   <!-- Contact Footer Section -->
@@ -794,7 +758,7 @@ const alternate = isKo ? '/' : '/ko/';
 
     function initFromHash() {
       const hash = window.location.hash.replace('#', '').trim();
-      const validCategories = ['career', 'projects', 'research', 'opensource', 'blog', 'all'];
+      const validCategories = ['career', 'projects', 'research', 'opensource', 'all'];
       if (validCategories.includes(hash)) {
         setActiveTab(hash, false);
       } else {
@@ -1108,42 +1072,6 @@ const alternate = isKo ? '/' : '/ko/';
     font-size: 0.85rem;
     white-space: nowrap;
     flex-shrink: 0;
-  }
-
-  /* Blog post list */
-  .post-list {
-    list-style: none;
-    display: grid;
-    gap: 0.2rem;
-  }
-
-  .post-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.7rem 0.9rem;
-    border-radius: 10px;
-    color: var(--text);
-  }
-
-  .post-list a:hover {
-    background: var(--bg-card);
-    text-decoration: none;
-  }
-
-  .post-list a:hover .post-title {
-    color: var(--accent);
-  }
-
-  .post-list time {
-    color: var(--text-faint);
-    font-size: 0.88rem;
-    white-space: nowrap;
-  }
-
-  .more {
-    font-weight: 600;
   }
 
   .contact-links {
