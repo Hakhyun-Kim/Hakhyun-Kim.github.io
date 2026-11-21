@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import journey from '../data/journey.json';
 
 interface Props {
   lang: 'en' | 'ko';
@@ -9,24 +10,48 @@ const isKo = lang === 'ko';
 
 const experience = [
   {
+    company: '42dot',
+    role: 'Senior DevOps Engineer, Autonomous Driving',
+    period: { en: '2026 – Present', ko: '2026 – 현재' },
+    location: { en: 'Seongnam, Korea', ko: '성남' },
+    summary: {
+      en: 'Build and CI for the autonomous-driving software stack: a place where developers can build and test quickly on x86 before their code goes onto the target hardware.',
+      ko: '자율주행 소프트웨어 스택의 빌드와 CI를 맡고 있습니다. 개발자가 타깃 하드웨어에 올리기 전에 x86에서 빠르게 빌드하고 테스트할 수 있는 환경을 만듭니다.',
+    },
+    highlights: {
+      en: [
+        'Cut the full build from about 4 hours to about 1, which made a full build on every merge request practical',
+        'Simulation image built in CI that developers run from the web by tag or branch, with no local setup; simulation regression tests in CI',
+        'AI build-log analysis: results come back graded high, medium or low, and a person reviews them',
+        'CMake, Bazel, APT packages and GitLab CI on Ubuntu',
+      ],
+      ko: [
+        '풀빌드를 4시간 정도에서 1시간 정도로 줄여 MR마다 풀빌드를 돌릴 수 있게 함',
+        'CI에서 시뮬레이션 이미지를 만들어 로컬 설정 없이 웹에서 태그·브랜치로 실행, CI 안의 시뮬레이션 회귀 테스트',
+        'AI 빌드 로그 분석: 결과가 high/medium/low로 나오고 사람이 검토',
+        'Ubuntu에서 CMake, Bazel, APT 패키지, GitLab CI',
+      ],
+    },
+  },
+  {
     company: 'Solana Foundation',
     role: 'Ecosystem Engineer / Games Tech Lead, APAC',
     period: '2022 – 2024',
     location: { en: 'Remote', ko: '리모트' },
     summary: {
       en: 'Technical partner to game studios and startups across APAC — open-source Unreal and Unity SDKs, prototypes built alongside founders, and on-chain infrastructure for games.',
-      ko: 'APAC 게임 스튜디오·스타트업의 기술 파트너 — 오픈소스 Unreal·Unity SDK를 공개하고, 창업자들과 함께 프로토타입을 만들고, 게임을 위한 온체인 인프라를 설계했습니다.',
+      ko: 'APAC 게임 스튜디오·스타트업의 기술 파트너 — 오픈소스 Unreal·Unity SDK 작업, 창업자들과 함께 만든 프로토타입, 게임을 위한 온체인 인프라 설계를 했습니다.',
     },
     highlights: {
       en: [
-        'Built and maintained open-source Unreal Engine & Unity SDKs for Solana integration',
-        'Technical advisement & architectural consulting for Web3 game studios across APAC',
-        'Designed on-chain game infrastructure, escrow stalls, and social profile integrations',
+        'Helped game studios across APAC, from large publishers to startups, use blockchain well on the backend',
+        'Worked on the open-source Unreal Engine and Unity SDKs for Solana',
+        'Led seminars and business meetings myself, and met studio CEOs and CTOs',
       ],
       ko: [
-        'Unreal Engine 및 Unity용 오픈소스 온체인 SDK 개발 및 관리 (Unreal/Unity Solana SDK)',
-        'APAC 스튜디오 및 스타트업 대상 웹3/온체인 게임 아키텍처 기술 컨설팅 및 멘토링',
-        '온체인 자산, 인게임 에스크로, 소셜 프로필 통합 하네스 구축',
+        '큰 퍼블리셔부터 스타트업까지 APAC 게임 개발사들이 블록체인을 백엔드에서 잘 쓰도록 지원',
+        'Solana용 오픈소스 Unreal·Unity SDK 작업',
+        '세미나와 비즈니스 미팅을 직접 주도하고, 여러 게임사의 대표·CTO와 미팅',
       ],
     },
   },
@@ -44,11 +69,13 @@ const experience = [
         'Solved graphics, rendering (URP/HDRP), and performance escalations for indie to AAA studios',
         'Delivered profiling methodology workshops using Unity Profiler and Frame Debugger',
         'Guided studios on DOTS (Data-Oriented Tech Stack) deterministic physics and ECS architecture',
+        'Per-customer releases: backported fixes to the version a studio shipped on, and brought newer features into it',
       ],
       ko: [
         '국내외 인디 및 AAA 스튜디오 대상 그래픽, 렌더링 파이프라인(URP/HDRP), 성능 에스컬레이션 대응',
         'Unity Profiler, Frame Debugger를 활용한 성능 병목 분석 및 프로파일링 방법론 워크숍 진행',
         'DOTS(Data-Oriented Technology Stack) 기반 결정론적 물리 및 ECS 시스템 가이드',
+        '고객사별 릴리스: 고객사가 출시한 버전에 수정을 백포트하고 새 기능을 가져옴',
       ],
     },
   },
@@ -68,7 +95,7 @@ const experience = [
         'Automated sensor pipeline benchmarking and synthetic dataset generation',
       ],
       ko: [
-        'UE4 + CARLA 기반 고정밀 자율주행 시뮬레이터 구축 (LiDAR, Radar, Camera 센서 수위 검증)',
+        'UE4 + CARLA 기반 고정밀 자율주행 시뮬레이터 구축 (LiDAR, Radar, Camera 센서 스위트 검증)',
         '오픈소스 CARLA 프로젝트 버그 수정 및 라인 배처 충돌 이슈 해결 (CARLA PR #2916 머지)',
         '센서 파이프라인 벤치마킹 및 시뮬레이션 합성 데이터셋 생성 자동화',
       ],
@@ -80,19 +107,19 @@ const experience = [
     period: '2018 – 2020',
     location: { en: 'Helsinki, Finland', ko: '헬싱키, 핀란드' },
     summary: {
-      en: 'Unreal customized for quad-view human-eye-resolution rendering, enterprise MR on OpenXR (open-sourced at varjoepic/UnrealEngine), and the headset hardware test process.',
-      ko: 'human-eye-resolution 쿼드뷰 렌더링을 위한 Unreal 커스터마이징, OpenXR 기반 엔터프라이즈 MR(varjoepic/UnrealEngine 공개), 그리고 헤드셋 하드웨어 테스트 프로세스를 담당했습니다.',
+      en: 'Unreal customized for quad-view human-eye-resolution rendering, enterprise MR on OpenXR (open-sourced at varjoepic/UnrealEngine), and managing the headset test suites.',
+      ko: 'human-eye-resolution 쿼드뷰 렌더링을 위한 Unreal 커스터마이징, OpenXR 기반 엔터프라이즈 MR(varjoepic/UnrealEngine 공개), 그리고 헤드셋 테스트 스위트 관리를 맡았습니다.',
     },
     highlights: {
       en: [
         'Customized Unreal Engine source for quad-view human-eye-resolution VR rendering',
         'Built enterprise MR solutions on OpenXR (open-sourced at varjoepic/UnrealEngine)',
-        'Developed hardware testing and automated validation pipelines for Varjo XR headsets',
+        'Managed the automated and manual headset test suites and added image comparison of the rendering output',
       ],
       ko: [
         '사람 눈 해상도(human-eye resolution) 쿼드뷰 렌더링을 위한 Unreal Engine 커스텀 소스 개발',
         'OpenXR 기반 엔터프라이즈 MR 솔루션 구축 (varjoepic/UnrealEngine 오픈소스 공개)',
-        'VR/XR 헤드셋 하드웨어 디바이스 검증 및 자동화 테스트 파이프라인 구축',
+        '헤드셋 자동·수동 테스트 스위트 관리, 렌더링 결과 이미지 비교 검증 추가',
       ],
     },
   },
@@ -107,14 +134,16 @@ const experience = [
     },
     highlights: {
       en: [
-        'Engineered dedicated server networking & telemetry for mobile FPS Critical Ops',
-        'Implemented server-side anti-cheat validation and authoritative movement logic',
-        'Performed C++ memory leak profiling, crash dump analysis, and performance optimization',
+        'Server-side validation and live response to hacking and cheating in the multiplayer FPS Critical Ops',
+        'Live-ops telemetry and physics work',
+        'C++ crash and memory-leak reduction',
+        'Learned from a GitLab CI that brought the server and client up on its own, so new features could be tested in full',
       ],
       ko: [
-        '글로벌 모바일 FPS Critical Ops 실시간 데디케이티드 서버 네트워크 및 텔레메트리 개발',
-        '라이브 서비스 안티치트 대응 및 서버 사이드 물리/동작 검증 로직 구현',
-        'C++ 메모리 누수 탐지, 크래시 덤프 분석 및 프레임 레이트 최적화',
+        '멀티플레이 FPS Critical Ops의 서버 사이드 검증과 라이브 핵·치팅 대응',
+        '라이브 운영 텔레메트리와 물리 작업',
+        'C++ 크래시·메모리 누수 개선',
+        '서버와 클라이언트를 자동으로 띄워 새 기능을 실제 게임으로 테스트하는 GitLab CI를 보고 배움',
       ],
     },
   },
@@ -131,12 +160,14 @@ const experience = [
       en: [
         'Developed C++/UE4 online action game on dedicated server infrastructure',
         'Built PhysX-based simulation systems and Behavior Tree boss AI logic',
-        'Created custom Blueprint nodes for designer workflow and setup CI/CD build automation',
+        'Created custom Blueprint nodes for designers',
+        'Brought code review to a team of about ten programmers, and set up the UE4 build process and automation',
       ],
       ko: [
         'C++ / UE4 기반 온라인 액션 게임 데디케이티드 서버 및 클라이언트 프로그래밍',
         'PhysX 기반 시뮬레이션 시스템 및 Behavior Tree 기반 보스 몬스터 AI 개발',
-        '비주얼 스크립팅용 커스텀 Blueprint 노드 확장 및 젠킨스 빌드 자동화 파이프라인 구축',
+        '비주얼 스크립팅용 커스텀 Blueprint 노드 확장',
+        '프로그래머 10명 정도인 팀에 코드 리뷰를 도입하고 UE4 빌드 프로세스와 자동화 구축',
       ],
     },
   },
@@ -152,13 +183,17 @@ const experience = [
     highlights: {
       en: [
         'Developed Direct3D 9/11 rendering backends at Trinigy HQ (Tübingen, Germany)',
-        'Founding member of Havok Korea, leading Asia technical support across console & PC',
-        'Provided engine & middleware integration (Havok Physics, Cloth, AI) for PS, Xbox, Wii, PC games',
+        'Engine code review; used and improved a CI and regression tests that already worked well',
+        'Founding member of Havok Korea, supporting studios across Korea and Asia on console & PC',
+        'Engine & middleware integration (Havok Physics, Animation, AI) for PS, Xbox, Wii, PC games',
+        'Per-customer releases and backports',
       ],
       ko: [
         '독일 튀빙겐 Trinigy 본사에서 Vision Engine Direct3D 9/11 렌더링 백엔드 코어 개발',
-        'Havok 한국 지사 창립 멤버로 참가하여 아시아 전역 기술 지원 팀 리딩 (한국/일본/중국)',
-        'PlayStation, Xbox, Wii, PC 플랫폼 상의 게임 엔진, Havok Physics, Cloth, AI 미들웨어 최적화 지원',
+        '엔진 코드 리뷰, 이미 잘 돌아가던 CI·회귀 테스트를 쓰면서 개선',
+        'Havok 한국 지사 창립 멤버로 한국·아시아 스튜디오 기술 지원',
+        'PlayStation, Xbox, Wii, PC 플랫폼의 게임 엔진, Havok Physics, Animation, AI 미들웨어 통합 지원',
+        '고객사별 릴리스와 백포트',
       ],
     },
   },
@@ -185,7 +220,7 @@ const experience = [
   {
     company: 'Gravity',
     role: 'Client Programmer — Ragnarok Online',
-    period: '2003 – 2005',
+    period: '2004 – 2005',
     location: { en: 'Seoul, Korea', ko: '서울' },
     summary: {
       en: 'Overseas client development (IME, localization) for an in-house-engine MMORPG serving 1M+ concurrent players across 10+ countries.',
@@ -463,8 +498,8 @@ const title = isKo
   ? '김학현 — 실시간 3D & 게임 개발'
   : 'Hakhyun Kim — Real-time 3D & Game Development';
 const description = isKo
-  ? '김학현 — 게임 엔진, XR, 자율주행 시뮬레이션, AI 도구를 활용한 게임 개발 경력과 프로젝트를 정리했습니다.'
-  : 'Hakhyun Kim — Real-time 3D software engineer, game engines, XR, simulation, and AI-assisted game development.';
+  ? '김학현 — 게임 엔진에서 시작해 지금은 자율주행 소프트웨어의 빌드와 CI를 맡고 있는 엔지니어의 경력과 프로젝트입니다.'
+  : 'Hakhyun Kim — from game engines to build and CI for autonomous-driving software: career and projects.';
 const alternate = isKo ? '/' : '/ko/';
 ---
 
@@ -480,11 +515,11 @@ const alternate = isKo ? '/' : '/ko/';
       <h1>Hakhyun <span class="gradient-text">Kim</span></h1>
       {isKo ? (
         <p class="tagline">
-          게임 엔진, XR, 자율주행 시뮬레이션 등 실시간 소프트웨어를 제작해온 엔지니어입니다. 최근에는 AI 도구를 활용하여 다양한 게임 개발 프로젝트 등을 진행하고 있습니다.
+          게임 엔진에서 시작해, 지금은 42dot 자율주행 조직에서 빌드와 CI를 맡고 있는 엔지니어입니다.
         </p>
       ) : (
         <p class="tagline">
-          Real-time software engineer working across game engines, XR, and simulation — currently building game projects with AI tools.
+          I started on game engines, and now I work on build and CI in 42dot's autonomous driving group.
         </p>
       )}
       
@@ -536,11 +571,28 @@ const alternate = isKo ? '/' : '/ko/';
         <h2 class="section-title">{isKo ? '경력' : 'Career'}</h2>
         <p class="section-note">
           {isKo
-            ? '2003년부터 지금까지 이어온 엔진, 미들웨어, XR, 시뮬레이션, 온체인 개발 기록입니다. 각 항목을 클릭하여 세부 기술 스택과 성과를 확인하실 수 있습니다.'
-            : 'Twenty-odd years of engineering — engines, middleware, XR, simulation, and on-chain. Click "+ View details" to expand technical highlights.'}
+            ? '엔진, 미들웨어, XR, 시뮬레이션, 온체인, 그리고 지금의 빌드와 CI까지 이어진 기록입니다.'
+            : 'Engines, middleware, XR, simulation, on-chain, and now build and CI.'}
         </p>
       </div>
 
+      <div class="journey">
+        <h3 class="journey-title">{isKo ? '걸어온 길' : 'How I got here'}</h3>
+        <p class="journey-intro">{journey.intro[lang]}</p>
+        <ol class="journey-steps">
+          {journey.steps.map((step, i) => (
+            <li class={i === journey.steps.length - 1 ? 'journey-step now' : 'journey-step'}>
+              <p class="journey-when">{step.years} · {step.place[lang]}</p>
+              <h4>{step.title[lang]}</h4>
+              <p class="journey-body">{step.body[lang]}</p>
+              <p class="journey-carried"><span>{isKo ? '이어진 것' : 'Carried forward'}</span>{step.carried[lang]}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="journey-outro">{journey.outro[lang]}</p>
+      </div>
+
+      <h3 class="subsection-subtitle">{isKo ? '회사별 상세' : 'Roles in detail'}</h3>
       <div class="career-list">
         {
           experience.map((job) => (
@@ -548,7 +600,7 @@ const alternate = isKo ? '/' : '/ko/';
               <div class="career-top">
                 <div class="career-title-row">
                   <h3>{job.company}</h3>
-                  <span class="tl-period">{job.period}</span>
+                  <span class="tl-period">{typeof job.period === 'string' ? job.period : job.period[lang]}</span>
                 </div>
                 <p class="tl-role">
                   {job.role} · <span class="tl-loc">{job.location[lang]}</span>
@@ -866,6 +918,77 @@ const alternate = isKo ? '/' : '/ko/';
     font-size: 1.2rem;
     margin: 1.8rem 0 1rem;
     color: var(--text);
+  }
+
+  /* Career journey (story above the role list) */
+  .journey {
+    margin-bottom: 2.6rem;
+  }
+
+  .journey-title {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+
+  .journey-intro,
+  .journey-outro {
+    color: var(--text-soft);
+    line-height: 1.75;
+    font-size: 1rem;
+    max-width: 46rem;
+  }
+
+  .journey-steps {
+    list-style: none;
+    margin: 1.6rem 0;
+    padding: 0;
+    border-left: 2px solid var(--border);
+    max-width: 46rem;
+  }
+
+  .journey-step {
+    padding: 0 0 1.6rem 1.3rem;
+  }
+
+  .journey-step:last-child {
+    padding-bottom: 0.2rem;
+  }
+
+  .journey-step.now {
+    border-left: 2px solid var(--accent);
+    margin-left: -2px;
+  }
+
+  .journey-when {
+    font-family: 'Cascadia Code', Consolas, 'D2Coding', monospace;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+
+  .journey-step h4 {
+    font-size: 1.06rem;
+    color: var(--text);
+    margin: 0.2rem 0 0.35rem;
+  }
+
+  .journey-body {
+    color: var(--text-soft);
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .journey-carried {
+    margin-top: 0.45rem;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .journey-carried span {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 0.5rem;
   }
 
   /* Career List styling */
